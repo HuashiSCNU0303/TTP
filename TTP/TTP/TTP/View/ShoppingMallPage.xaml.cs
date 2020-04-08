@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +16,16 @@ namespace TTP.View
         public ShoppingMallPage()
         {
             InitializeComponent();
-            this.BindingContext = new GoodsViewModel();
+            BindingContext = new GoodsViewModel();
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            //选择商品事件
+            await Navigation.PushAsync(new GoodsDetail
+            {
+                BindingContext = new GoodsViewModel()
+            });
         }
     }
 }

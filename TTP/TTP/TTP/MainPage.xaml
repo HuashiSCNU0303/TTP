@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:tab="clr-namespace:TTP.View;assembly=TTP"
              mc:Ignorable="d"
-             x:Class="TTP.MainPage">
+             x:Class="TTP.MainPage"
+             Padding="0,0,0,-10">
     <tab:MainTomatoTimerPage/>
     <tab:ShoppingMallPage/>
     <tab:PersonalCenterPage />

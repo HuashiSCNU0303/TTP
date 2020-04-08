@@ -5,8 +5,9 @@ using System.Text;
 
 namespace TTP.Model
 {
-    class GoodsModel : ViewModelBase
+    public class GoodsModel : ViewModelBase
     {
+        public string Id { get; set; }
         public string Description { get; set; }
     }
 }
