@@ -9,8 +9,7 @@
              Title="Main"
              IconImageSource="{local:ImageResource TTP.Assets.TabbedIcon.task-management.png}">
     <ContentPage.Content>
-        <ListView x:Name="listView"
-                  ItemSelected="ListView_ItemSelected"
+        <ListView ItemSelected="ListView_ItemSelected"
                   SeparatorVisibility="None"
                   ItemsSource="{Binding GoodsModels}"
                   HasUnevenRows="True">

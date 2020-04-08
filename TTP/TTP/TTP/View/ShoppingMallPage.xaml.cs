@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TTP.Model;
 using TTP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,11 +22,18 @@ namespace TTP.View
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //选择商品事件
-            await Navigation.PushAsync(new GoodsDetail
+            ListView lv = sender as ListView;
+            
+            var m = lv.SelectedItem as GoodsModel;
+
+            if (m == null) return;
+
+            lv.SelectedItem = null;
+            await Navigation.PushAsync(new GoodsDetailPage()
             {
-                BindingContext = new GoodsViewModel()
+                BindingContext = m
             });
+            
         }
     }
 }
