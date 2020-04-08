@@ -3,13 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:TTP;assembly=TTP"
              mc:Ignorable="d"
              x:Class="TTP.View.GoodsDetailPage">
-    <ContentPage.Content>
+            
+        <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Id}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image 
+            Source="{local:ImageResource TTP.Assets.TabbedIcon.006.jpg}"
+           />
+            <StackLayout Margin="20,35,20,25">
+                <Label Text="商品名：" />
+                <Label Text="{Binding name}"/>
+                <Label Text="价格：" />
+                <Label Text="{Binding price}"/>
+                <Label Text="发布者：" />
+                <Label Text="{Binding owner}"/>
+                <Label Text="发布时间：" />
+                <Label Text="{Binding date}"/>
+                <Label Text="商品描述：" />
+                <Label Text="{Binding Description}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
