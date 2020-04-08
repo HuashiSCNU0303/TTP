@@ -8,21 +8,26 @@
              x:Class="TTP.View.GoodsDetailPage">
             
         <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="st">
             <Image 
             Source="{local:ImageResource TTP.Assets.TabbedIcon.006.jpg}"
            />
             <StackLayout Margin="20,35,20,25">
                 <Label Text="商品名：" />
-                <Label Text="{Binding name}"/>
+                <Label Text="{Binding GoodsModel.Name}"/>
                 <Label Text="价格：" />
-                <Label Text="{Binding price}"/>
+                <Label Text="{Binding GoodsModel.Price}"/>
                 <Label Text="发布者：" />
-                <Label Text="{Binding owner}"/>
+                <Label Text="{Binding GoodsModel.Owner}"/>
                 <Label Text="发布时间：" />
-                <Label Text="{Binding date}"/>
+                <Label Text="{Binding GoodsModel.Date}"/>
                 <Label Text="商品描述：" />
-                <Label Text="{Binding Description}"/>
+                <Label Text="{Binding GoodsModel.Description}"/>
+                <Button Text="detele" 
+                        
+                        Command="{Binding Source={x:Reference st},Path=BindingContext.DeleteCommand}"
+                        CommandParameter="{Binding GoodsModel}"
+                        Clicked="Button_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

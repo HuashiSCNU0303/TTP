@@ -57,6 +57,7 @@
                     BackgroundColor="#D1EEEE"
                     Text="+"
                     FontSize="30"
+                    Clicked="btnAdd_Clicked"
                     />
         </Grid>
     </ContentPage.Content>

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using TTP.Data;
+using TTP.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

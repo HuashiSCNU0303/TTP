@@ -24,16 +24,24 @@ namespace TTP.View
         {
             ListView lv = sender as ListView;
             
-            var m = lv.SelectedItem as GoodsModel;
+            var model = lv.SelectedItem as GoodsModel;
 
-            if (m == null) return;
+            if (model == null) return;
 
             lv.SelectedItem = null;
             await Navigation.PushAsync(new GoodsDetailPage()
             {
-                BindingContext = m
+                BindingContext = new GoodsDetailViewModel() 
+                { 
+                    GoodsModel=model
+                }
             });
             
+        }
+
+        private async void btnAdd_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddGoodsPage());
         }
     }
 }

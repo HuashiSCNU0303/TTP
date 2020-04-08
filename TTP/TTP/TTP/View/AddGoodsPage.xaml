@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TTP.View.AddGoodsPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="st">
+            <Label Text="这是增加商品页面"/>
+            <Entry Placeholder="Enter your Id"
+                   Text="{Binding GoodsModel.Id}"
+                   HeightRequest="50" />
+            <Entry Placeholder="Enter your Name"
+                   Text="{Binding GoodsModel.Name}"
+                   HeightRequest="50" />
+            <Entry Placeholder="Enter your Price"
+                   Text="{Binding GoodsModel.Price}"
+                   HeightRequest="50" />
+            <Entry Placeholder="Enter your Type"
+                   Text="{Binding GoodsModel.Type}"
+                   HeightRequest="50" />
+            <Entry Placeholder="Enter your Owner"
+                   Text="{Binding GoodsModel.Owner}"
+                   HeightRequest="50" />
+            <Entry Placeholder="Enter your Date"
+                   Text="{Binding GoodsModel.Date}"
+                   HeightRequest="50" />
+            <Entry Placeholder="Enter your Description"
+                   Text="{Binding GoodsModel.Description}"
+                   HeightRequest="50" />
+            <Button Text="增加" 
+                    Clicked="Button_Clicked"
+                    Command="{Binding Source={x:Reference st},Path=BindingContext.AddCommand}"
+                    CommandParameter="{Binding GoodsModel}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
