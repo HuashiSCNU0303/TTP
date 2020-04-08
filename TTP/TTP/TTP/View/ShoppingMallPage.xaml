@@ -9,37 +9,55 @@
              Title="Main"
              IconImageSource="{local:ImageResource TTP.Assets.TabbedIcon.task-management.png}">
     <ContentPage.Content>
-        <ListView ItemSelected="ListView_ItemSelected"
-                  SeparatorVisibility="None"
-                  ItemsSource="{Binding GoodsModels}"
-                  HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.RowSpan="2"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <ListView ItemSelected="ListView_ItemSelected"
+                      Grid.RowSpan="2"
+                      SeparatorVisibility="None"
+                      ItemsSource="{Binding GoodsModels}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
                                    Source="{local:ImageResource TTP.Assets.TabbedIcon.006.jpg}"
                                    Aspect="AspectFill"
                                    HeightRequest="60"
                                    WidthRequest="60"/>
-                            <Label Grid.Column="1"
+                                <Label Grid.Column="1"
                                    Text="{Binding Id}"/>
-                            <Label Grid.Column="1"
+                                <Label Grid.Column="1"
                                    Grid.Row="1"
                                    Text="{Binding Description}"
                                    VerticalOptions="End"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button x:Name="btnAdd" 
+                    Grid.Row="1"
+                    HorizontalOptions="EndAndExpand" 
+                    WidthRequest="60" 
+                    HeightRequest="60" 
+                    Margin="0,0,10,10" 
+                    CornerRadius="50"
+                    BackgroundColor="#D1EEEE"
+                    Text="+"
+                    FontSize="30"
+                    />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
