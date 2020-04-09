@@ -15,9 +15,9 @@ namespace TTP.Data
 			restService = service;
 		}
 
-		public Task<List<GoodsModel>> GetGoodsTasksAsync(string id)
+		public Task<List<GoodsModel>> GetGoodsTasksAsync()
 		{
-			return restService.GetGoodsAsync(id);
+			return restService.GetGoodsAsync();
 		}
 
 		public Task AddGoodsTaskAsync(GoodsModel item)

@@ -7,23 +7,39 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
+@Entity
+@Table(name="goodsDataTable")
 public class GoodsData {
     public enum TYPE { AAA, BBB, CCC };
-    @JsonIgnore
-    private Long goodsId;
+
+//    @Id
+//    @GeneratedValue
+//    @JsonIgnore
+//    private Long goodsId;
+
+    @Id
     private Long id;
+
+    @Column(nullable = false,length = 32)
     private String name;
+
     private int price;
+
     private TYPE type;
+
+    @Column(nullable = false,length = 32)
     public String owner;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
     private Date date;
+
+    @Column(length = 512)
     private String description;
 }

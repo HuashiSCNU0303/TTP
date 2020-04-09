@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TTP.Model;
+using TTP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,6 +22,8 @@ namespace TTP.View
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            GoodsDetailViewModel gdvm = BindingContext as GoodsDetailViewModel;
+            await App.GoodsManager.DeleteGoodsTaskAsync(gdvm.GoodsModel);
             await DisplayAlert("提示", "删除商品成功", "OK");
             await Navigation.PopAsync();
         }

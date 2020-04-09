@@ -8,12 +8,12 @@ namespace TTP.Data
 {
     public interface IGoodsRestService
     {
-        Task DeleteGoodsAsync(string id);
+        Task DeleteGoodsAsync(long id);
 
         Task AddGoodsAsync(GoodsModel item);
 
         Task ModifyGoodsAsync(GoodsModel item);
 
-        Task <List<GoodsModel>> GetGoodsAsync(string id);
+        Task <List<GoodsModel>> GetGoodsAsync();
     }
 }

@@ -17,6 +17,8 @@
                 <Label Text="{Binding GoodsModel.Name}"/>
                 <Label Text="价格：" />
                 <Label Text="{Binding GoodsModel.Price}"/>
+                <Label Text="分类：" />
+                <Label Text="{Binding GoodsModel.Type}"/>
                 <Label Text="发布者：" />
                 <Label Text="{Binding GoodsModel.Owner}"/>
                 <Label Text="发布时间：" />

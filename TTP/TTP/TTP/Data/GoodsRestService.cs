@@ -25,6 +25,7 @@ namespace TTP.Data
 
             try
             {
+
                 var json = JsonConvert.SerializeObject(item);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -38,7 +39,7 @@ namespace TTP.Data
             }
         }
 
-        public async Task DeleteGoodsAsync(string id)
+        public async Task DeleteGoodsAsync(long id)
         {
             var uri = new Uri(string.Format(Constants.GoodsUrl, id));
 
@@ -58,12 +59,12 @@ namespace TTP.Data
             }
         }
 
-        public async Task<List<GoodsModel>> GetGoodsAsync(string id)
+        public async Task<List<GoodsModel>> GetGoodsAsync()
         {
             GoodsItems = new List<GoodsModel>();
 
 
-            var uri = new Uri(string.Format(Constants.GoodsUrl, id));
+            var uri = new Uri(string.Format(Constants.GoodsUrl, string.Empty));
             try
             {
                 var response = await _client.GetAsync(uri);

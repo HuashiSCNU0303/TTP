@@ -7,6 +7,6 @@ namespace TTP
     public static class Constants
     {
         public static string BaseUrl = "http://192.168.1.6:8080";
-        public static string GoodsUrl = BaseUrl+"/rest/goods-data/12";
+        public static string GoodsUrl = BaseUrl+"/rest/goods-data/{0}";
     }
 }
