@@ -7,6 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Slf4j
 @Controller
@@ -40,19 +46,31 @@ public class GoodsDataRestController {
         return AjaxResponse.success(goodsData);
     }
 
-    @GetMapping( "/goodsData/{id}")
-    public @ResponseBody  AjaxResponse getGoodsData(@PathVariable Long id) {
+    @GetMapping( "/goods-data/{id}")
+    public @ResponseBody
+    List<GoodsData> getGoodsData(@PathVariable Long id) {
 
-        GoodsData goodsData1 = GoodsData.builder()
-                .id(1L)
-                .goodsId(2L)
-                .goodsPrice(2)
-                .carrierId(3L)
-                .carrierName("张俊杰")
-                .date("4")
-                .category("5")
-                .goodsDescription("一个用来测试的商品")
-                .build();
-        return AjaxResponse.success(goodsData1);
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+        try{
+            GoodsData goodsData1 = GoodsData.builder()
+                    .id(id)
+                    .goodsId(2L)
+                    .name("测试商品")
+                    .type(GoodsData.TYPE.AAA)
+                    .price(12)
+                    .owner("我自己")
+                    .date(format.parse("2019-10-20 12:12"))
+                    .description("一个用来测试的商品")
+                    .build();
+//            return AjaxResponse.success(goodsData1);
+            List<GoodsData> list=new ArrayList<GoodsData>();
+            list.add(goodsData1);
+            return list;
+        }catch (ParseException e){
+            return null;
+        }
+
+
     }
 }

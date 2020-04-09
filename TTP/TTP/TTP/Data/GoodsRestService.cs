@@ -62,7 +62,8 @@ namespace TTP.Data
         {
             GoodsItems = new List<GoodsModel>();
 
-            var uri = new Uri(string.Format(Constants.GoodsUrl, string.Empty));
+
+            var uri = new Uri(string.Format(Constants.GoodsUrl, id));
             try
             {
                 var response = await _client.GetAsync(uri);
@@ -70,6 +71,9 @@ namespace TTP.Data
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     GoodsItems = JsonConvert.DeserializeObject<List<GoodsModel>>(content);
+                }
+                else {
+                    Debug.WriteLine(@"\tERROR {0}", response.Content);
                 }
             }
             catch (Exception ex)

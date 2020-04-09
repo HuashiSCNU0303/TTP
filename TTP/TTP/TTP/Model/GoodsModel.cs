@@ -15,7 +15,7 @@ namespace TTP.Model
         //物品名字
         public string Name { get; set; }
         //物品价格
-        public string Price { get; set; }
+        public int Price { get; set; }
         //物品类型
         public TYPE Type { get; set; }
         //物品拥有者

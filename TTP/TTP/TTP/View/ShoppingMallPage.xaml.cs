@@ -14,7 +14,7 @@ namespace TTP.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShoppingMallPage : ContentPage
     {
-        public ShoppingMallPage()
+        public  ShoppingMallPage()
         {
             InitializeComponent();
             BindingContext = new GoodsViewModel();
