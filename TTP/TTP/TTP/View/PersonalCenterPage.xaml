@@ -10,7 +10,7 @@
              IconImageSource="{local:ImageResource TTP.Assets.TabbedIcon.task-management.png}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="这是3界面"
+            <Label Text="{Binding CurrentUser.Name}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

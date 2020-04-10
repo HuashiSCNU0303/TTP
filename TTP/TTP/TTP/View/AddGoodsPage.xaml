@@ -31,7 +31,6 @@
                    HeightRequest="50" />
             <Button Text="增加" 
                     Clicked="Button_Clicked"
-                    Command="{Binding Source={x:Reference st},Path=BindingContext.AddCommand}"
                     CommandParameter="{Binding GoodsModel}"/>
         </StackLayout>
     </ContentPage.Content>

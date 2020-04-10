@@ -24,6 +24,7 @@ namespace TTP.View
         {
             GoodsDetailViewModel gdvm = BindingContext as GoodsDetailViewModel;
             await App.GoodsManager.DeleteGoodsTaskAsync(gdvm.GoodsModel);
+            GoodsViewModel.refresh();
             await DisplayAlert("提示", "删除商品成功", "OK");
             await Navigation.PopAsync();
         }

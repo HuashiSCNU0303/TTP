@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace TTP.ViewModel
         private static ObservableCollection<GoodsModel> goodsModels;
         public GoodsViewModel() {
             goodsModels = new ObservableCollection<GoodsModel>();
-            getAll();
+            refresh();
         }
 
         public ObservableCollection<GoodsModel> GoodsModels {
@@ -20,21 +21,9 @@ namespace TTP.ViewModel
             set { goodsModels = value; RaisePropertyChanged(); }
         }
 
-        public static void add(GoodsModel gm) {
-            goodsModels.Add(gm);
-        }
-
-        public static void delete(GoodsModel gm) {
-            goodsModels.Remove(gm);
-        }
-
-        public async void getAll() {
-            List<GoodsModel> list = await App.GoodsManager.GetGoodsTasksAsync();
-            list.ForEach(g=> goodsModels.Add(g));
-        }
-
         public async static void refresh() {
             List<GoodsModel> list = await App.GoodsManager.GetGoodsTasksAsync();
+            goodsModels.Clear();
             list.ForEach(g => goodsModels.Add(g));
         }
     }

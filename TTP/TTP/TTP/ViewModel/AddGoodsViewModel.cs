@@ -13,20 +13,12 @@ namespace TTP.ViewModel
         public AddGoodsViewModel()
         {
             goodsModel = new GoodsModel();
-            AddCommand = new RelayCommand<GoodsModel>(g => AddGoods(g));
         }
 
         public GoodsModel GoodsModel
         {
             get { return goodsModel; }
             set { goodsModel = value; RaisePropertyChanged(); }
-        }
-
-        public RelayCommand<GoodsModel> AddCommand { get; private set; }
-
-        public void AddGoods(GoodsModel addGoodsModel)
-        {
-            GoodsViewModel.add(addGoodsModel);
         }
     }
 }

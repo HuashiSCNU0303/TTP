@@ -23,6 +23,7 @@ namespace TTP.View
         {
             AddGoodsViewModel agvm = BindingContext as AddGoodsViewModel;
             await App.GoodsManager.AddGoodsTaskAsync(agvm.GoodsModel);
+            GoodsViewModel.refresh();
             await DisplayAlert("提示", "增加成功！", "OK");
             await Navigation.PopAsync();
         }

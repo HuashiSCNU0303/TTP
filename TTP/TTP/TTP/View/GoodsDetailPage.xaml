@@ -26,9 +26,6 @@
                 <Label Text="商品描述：" />
                 <Label Text="{Binding GoodsModel.Description}"/>
                 <Button Text="detele" 
-                        
-                        Command="{Binding Source={x:Reference st},Path=BindingContext.DeleteCommand}"
-                        CommandParameter="{Binding GoodsModel}"
                         Clicked="Button_Clicked"/>
             </StackLayout>
         </StackLayout>
