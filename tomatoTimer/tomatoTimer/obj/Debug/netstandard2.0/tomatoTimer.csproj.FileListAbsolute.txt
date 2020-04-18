@@ -1,0 +1,13 @@
+C:\TTP\tomatoTimer\tomatoTimer\bin\Debug\netstandard2.0\tomatoTimer.deps.json
+C:\TTP\tomatoTimer\tomatoTimer\bin\Debug\netstandard2.0\tomatoTimer.dll
+C:\TTP\tomatoTimer\tomatoTimer\bin\Debug\netstandard2.0\ref\tomatoTimer.dll
+C:\TTP\tomatoTimer\tomatoTimer\bin\Debug\netstandard2.0\tomatoTimer.pdb
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\tomatoTimer.csprojAssemblyReference.cache
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\tomatoTimer.AssemblyInfoInputs.cache
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\tomatoTimer.AssemblyInfo.cs
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\XamlC.stamp
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\tomatoTimer.dll
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\ref\tomatoTimer.dll
+C:\TTP\tomatoTimer\tomatoTimer\obj\Debug\netstandard2.0\tomatoTimer.pdb
