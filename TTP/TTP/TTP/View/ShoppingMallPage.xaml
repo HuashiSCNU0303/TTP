@@ -3,11 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:TTP;assembly=TTP"
              mc:Ignorable="d"
              x:Class="TTP.View.ShoppingMallPage"
-             Title="Main"
-             IconImageSource="{local:ImageResource TTP.Assets.TabbedIcon.task-management.png}">
+             Shell.NavBarIsVisible="false"
+             Title="Shop">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -32,7 +31,7 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.RowSpan="2"
-                                   Source="{local:ImageResource TTP.Assets.TabbedIcon.006.jpg}"
+                                   Source="{Binding Uri}"
                                    Aspect="AspectFill"
                                    HeightRequest="60"
                                    WidthRequest="60"/>

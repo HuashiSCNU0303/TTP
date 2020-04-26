@@ -16,8 +16,10 @@ namespace TTP.View
     {
         public  ShoppingMallPage()
         {
+
             InitializeComponent();
             BindingContext = new GoodsViewModel();
+
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

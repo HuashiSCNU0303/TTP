@@ -17,7 +17,7 @@ import java.util.Date;
 @Entity
 @Table(name="goodsDataTable")
 public class GoodsData {
-    public enum TYPE { AAA, BBB, CCC };
+    public enum TYPE { 食品, 服装, 鞋帽, 日用品, 家具, 纺织}
 
 //    @Id
 //    @GeneratedValue
@@ -42,4 +42,6 @@ public class GoodsData {
 
     @Column(length = 512)
     private String description;
+
+    private String uri;
 }

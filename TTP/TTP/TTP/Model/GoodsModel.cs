@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TTP.Model
 {   //物品类型种类
-    public enum TYPE { AAA, BBB, CCC }
+    //public enum TYPE { 食品, 服装, 鞋帽, 日用品, 家具, 纺织}
     public class GoodsModel : ViewModelBase
     {
 
@@ -23,7 +23,7 @@ namespace TTP.Model
         public int Price { get; set; }
         //物品类型
         [JsonProperty(PropertyName = "type")]
-        public TYPE Type { get; set; }
+        public string Type { get; set; }
         //物品拥有者
         [JsonProperty(PropertyName = "owner")]
         public string Owner { get; set; }
@@ -33,5 +33,8 @@ namespace TTP.Model
         //物品的描述，一般由发布者写入
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set;}
+        //
+        [JsonProperty(PropertyName = "uri")]
+        public string Uri { get; set; }
     }
 }

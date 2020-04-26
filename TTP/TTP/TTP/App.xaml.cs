@@ -17,7 +17,7 @@ namespace TTP
             GoodsManager = new GoodsItemManager(new GoodsRestService());
             //判断以前是否登陆过
             Judgeloginstatus();
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

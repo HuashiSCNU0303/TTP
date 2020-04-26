@@ -3,35 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
              mc:Ignorable="d"
-             x:Class="TTP.View.AddGoodsPage">
+             x:Class="TTP.View.AddGoodsPage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="false">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout x:Name="st">
             <Label Text="这是增加商品页面"/>
-            <Entry Placeholder="Enter your Id"
-                   Text="{Binding GoodsModel.Id}"
-                   HeightRequest="50" />
-            <Entry Placeholder="Enter your Name"
-                   Text="{Binding GoodsModel.Name}"
-                   HeightRequest="50" />
-            <Entry Placeholder="Enter your Price"
-                   Text="{Binding GoodsModel.Price}"
-                   HeightRequest="50" />
-            <Entry Placeholder="Enter your Type"
-                   Text="{Binding GoodsModel.Type}"
-                   HeightRequest="50" />
-            <Entry Placeholder="Enter your Owner"
-                   Text="{Binding GoodsModel.Owner}"
-                   HeightRequest="50" />
-            <Entry Placeholder="Enter your Date"
-                   Text="{Binding GoodsModel.Date}"
-                   HeightRequest="50" />
-            <Entry Placeholder="Enter your Description"
-                   Text="{Binding GoodsModel.Description}"
-                   HeightRequest="50" />
-            <Button Text="增加" 
+            <button:SfButton Text="上传图片" CornerRadius="20" Clicked="SfButton_Clicked">
+                <button:SfButton.BackgroundGradient>
+                    <gradient:SfLinearGradientBrush>
+                        <gradient:SfLinearGradientBrush.GradientStops>
+                            <gradient:SfGradientStop Color="#2F9BDF" Offset="0"/>
+                            <gradient:SfGradientStop Color="#51F1F2" Offset="1"/>
+                        </gradient:SfLinearGradientBrush.GradientStops>
+                    </gradient:SfLinearGradientBrush>
+                </button:SfButton.BackgroundGradient>
+            </button:SfButton>
+            <Image x:Name="image"/>
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter your Id">
+                <Entry Text="{Binding GoodsModel.Id}"/>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter your Name">
+                <Entry Text="{Binding GoodsModel.Name}"/>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter your Price">
+                <Entry Text="{Binding GoodsModel.Price}"/>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter your Owner">
+                <Entry Text="{Binding GoodsModel.Owner}"/>
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter your Description">
+                <Entry Text="{Binding GoodsModel.Description}"/>
+            </inputLayout:SfTextInputLayout>
+                <combobox:SfComboBox HeightRequest="40" x:Name="comboBox">
+                    <combobox:SfComboBox.ComboBoxSource>
+                        <ListCollection:List x:TypeArguments="x:String">
+                            <x:String>食品</x:String>
+                            <x:String>服装</x:String>
+                            <x:String>鞋帽</x:String>
+                            <x:String>日用品</x:String>
+                            <x:String>家具</x:String>
+                            <x:String>纺织</x:String>
+                        </ListCollection:List>
+                    </combobox:SfComboBox.ComboBoxSource>
+                </combobox:SfComboBox>
+                <Button Text="增加" 
                     Clicked="Button_Clicked"
                     CommandParameter="{Binding GoodsModel}"/>
         </StackLayout>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>

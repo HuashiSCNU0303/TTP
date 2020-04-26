@@ -18,6 +18,7 @@ namespace TTP.View
         public GoodsDetailPage()
         {
             InitializeComponent();
+            
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -27,6 +28,11 @@ namespace TTP.View
             GoodsViewModel.refresh();
             await DisplayAlert("提示", "删除商品成功", "OK");
             await Navigation.PopAsync();
+        }
+
+        protected override void OnAppearing()
+        {
+            GoodsDetailViewModel gdvm = BindingContext as GoodsDetailViewModel;
         }
     }
 }

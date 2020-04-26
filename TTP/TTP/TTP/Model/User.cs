@@ -7,7 +7,7 @@ namespace TTP.Model
 {
     public class User
     {
-        [JsonProperty(PropertyName = "Name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
     }
 }

@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:TTP;assembly=TTP"
              mc:Ignorable="d"
              x:Class="TTP.View.PersonalCenterPage"
-             Title="Main"
-             IconImageSource="{local:ImageResource TTP.Assets.TabbedIcon.task-management.png}">
+             Shell.NavBarIsVisible="false"
+             Title="User">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding CurrentUser.Name}"
