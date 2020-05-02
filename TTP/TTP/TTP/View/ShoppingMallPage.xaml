@@ -9,7 +9,7 @@
              Title="Main"
              IconImageSource="{local:ImageResource TTP.Assets.TabbedIcon.task-management.png}">
     <ContentPage.Content>
-        <Grid>
+        <Grid>  
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="70"/>

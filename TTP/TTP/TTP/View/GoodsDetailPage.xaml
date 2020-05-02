@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:TTP;assembly=TTP"
              mc:Ignorable="d"
-             x:Class="TTP.View.GoodsDetailPage">
+             x:Class="TTP.View.GoodsDetailPage" IsVisible="False">
             
         <ContentPage.Content>
         <StackLayout x:Name="st">

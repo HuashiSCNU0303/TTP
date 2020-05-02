@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,11 +11,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\MainTomatoImage\timer.png" />
+    <None Remove="Assets\MainTomatoImage\tomato.png" />
+    <None Remove="Assets\MainTomatoImage\weather.png" />
+    <None Remove="Assets\PersonalCenterImage\defaultPerson.png" />
+    <None Remove="Assets\PersonalCenterImage\person.png" />
     <None Remove="Assets\TabbedIcon\006.jpg" />
     <None Remove="Assets\TabbedIcon\task-management.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\MainTomatoImage\timer.png" />
+    <EmbeddedResource Include="Assets\MainTomatoImage\tomato.png" />
+    <EmbeddedResource Include="Assets\MainTomatoImage\weather.png" />
+    <EmbeddedResource Include="Assets\PersonalCenterImage\person.png" />
     <EmbeddedResource Include="Assets\TabbedIcon\006.jpg" />
     <EmbeddedResource Include="Assets\TabbedIcon\task-management.png" />
   </ItemGroup>
@@ -24,8 +33,15 @@
     <PackageReference Include="MvvmLight" Version="5.4.1.1" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.45" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.45" />
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="18.1.0.45" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\PersonalCenterImage\defaultPerson.png" />
   </ItemGroup>
 
   <ItemGroup>
