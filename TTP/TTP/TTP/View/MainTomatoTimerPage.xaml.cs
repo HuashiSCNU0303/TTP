@@ -15,6 +15,20 @@ namespace TTP.View
         public MainTomatoTimerPage()
         {
             InitializeComponent();
+           showTime();
+        }
+
+        public void showTime()
+        {
+            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+            Device.BeginInvokeOnMainThread(()=>labelTime.Text = DateTime.Now.ToString());
+            return true;
+            });
+        }
+
+        private void SfButton_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

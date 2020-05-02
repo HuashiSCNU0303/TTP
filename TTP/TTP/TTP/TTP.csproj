@@ -11,17 +11,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\MainTomatoImage\timer.png" />
+    <None Remove="Assets\MainTomatoImage\tomato.png" />
+    <None Remove="Assets\MainTomatoImage\weather.png" />
+    <None Remove="Assets\PersonalCenterImage\defaultPerson.png" />
+    <None Remove="Assets\PersonalCenterImage\person.png" />
+    <None Remove="Assets\TabbedIcon\006.jpg" />
     <None Remove="Assets\TabbedIcon\task-management.png" />
     <None Remove="Assets\TabbedIcon\timg.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Assets\TabbedIcon\timg.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
+    <EmbeddedResource Include="Assets\MainTomatoImage\timer.png" />
+    <EmbeddedResource Include="Assets\MainTomatoImage\tomato.png" />
+    <EmbeddedResource Include="Assets\MainTomatoImage\weather.png" />
+    <EmbeddedResource Include="Assets\PersonalCenterImage\person.png" />
+    <EmbeddedResource Include="Assets\TabbedIcon\006.jpg" />
     <EmbeddedResource Include="Assets\TabbedIcon\task-management.png" />
   </ItemGroup>
 
@@ -32,12 +37,13 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.45" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.45" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.1.0.45" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.1.0.45" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="18.1.0.45" />
-    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.657" />
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="18.1.0.45" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\PersonalCenterImage\defaultPerson.png" />
   </ItemGroup>
 
   <ItemGroup>

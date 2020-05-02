@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -9,10 +12,23 @@
              Shell.NavBarIsVisible="false"
              Title="Timer">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="这是1界面"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <border:SfBorder 
+                BorderColor="SkyBlue" 
+                AbsoluteLayout.LayoutBounds="0,0,1,.25" AbsoluteLayout.LayoutFlags="All">
+                <Image Source="{local:ImageResource TTP.Assets.MainTomatoImage.weather.png}"
+                   Aspect="AspectFill" ></Image>
+            </border:SfBorder>
+            <Image Source="{local:ImageResource TTP.Assets.MainTomatoImage.timer.png}"  
+                   AbsoluteLayout.LayoutBounds=".01,.17,.04,.05" AbsoluteLayout.LayoutFlags="All" ></Image>
+            <Image Source="{local:ImageResource TTP.Assets.MainTomatoImage.tomato.png}"  
+                   AbsoluteLayout.LayoutBounds=".01,.21,.04,.05" AbsoluteLayout.LayoutFlags="All"></Image>
+            <Label x:Name="labelTime"  AbsoluteLayout.LayoutBounds=".5,.08,.3,.12" AbsoluteLayout.LayoutFlags="All" LineBreakMode="WordWrap" 
+                   FontAttributes="Bold" TextColor="AliceBlue" FontSize="20"/>  
+            <Label Text="13小时20分钟" AbsoluteLayout.LayoutBounds=".08,.18,.3,.05" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
+            <Label Text="200" AbsoluteLayout.LayoutBounds=".08,.22,.3,.05" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
+            <Button BackgroundColor="Red" FontSize="30" Text="+" TextColor="White" AbsoluteLayout.LayoutBounds="1,.9,60,60" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional" BorderRadius="30" />
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
