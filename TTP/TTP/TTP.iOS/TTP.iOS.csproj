@@ -129,6 +129,9 @@
     <PackageReference Include="Syncfusion.Xamarin.Core">
       <Version>18.1.0.45</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
+      <Version>18.1.0.45</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfGauge">
       <Version>18.1.0.45</Version>
     </PackageReference>
