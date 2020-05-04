@@ -22,7 +22,7 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
             </Grid.ColumnDefinitions>
             <Frame BorderColor="Gray" HasShadow="True" CornerRadius="5" Margin="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="AliceBlue"></Frame>
             <border:SfBorder BorderColor="LightGray" BorderWidth="3" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" Grid.Row="0" Grid.Column="0" Margin="10" >
-                <Image Source="{local:ImageResource TTP.Assets.PersonalCenterImage.person.png}" Aspect="Fill"></Image>
+                <Image Source="person.png" Aspect="Fill"></Image>
             </border:SfBorder>
 
             <border:SfBorder Grid.Row="0" Grid.Column="1" BorderColor="Transparent"  >
@@ -90,9 +90,9 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                               Grid.Row="4"
                               Grid.Column="2"
                               Grid.ColumnSpan="2"/>
-                            <Image Source="{local:ImageResource TTP.Assets.MainTomatoImage.timer.png}" WidthRequest="10" HeightRequest="10"
+                            <Image Source="timer.png" WidthRequest="10" HeightRequest="10"
                                        HorizontalOptions="Start" VerticalOptions="Center"  Grid.Row="3" Grid.Column="0"></Image>
-                            <Image Source="{local:ImageResource TTP.Assets.MainTomatoImage.tomato.png}" WidthRequest="10" HeightRequest="10"
+                            <Image Source="tomato.png" WidthRequest="10" HeightRequest="10"
                                        HorizontalOptions="Start" VerticalOptions="Center"  Grid.Row="4" Grid.Column="0"></Image>
                         </Grid>
                     </Grid>
@@ -116,7 +116,7 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                                 <Image Source="{Binding HeadImage}" Grid.Column="0"/>
                                 <Image Source="{Binding BehindImage}" HorizontalOptions="End" Grid.Column="2"/>
                             </Grid>
-                        </ViewCell> 
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

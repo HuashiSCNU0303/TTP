@@ -1,4 +1,6 @@
-﻿using System;
+﻿//using Plugin.Media;
+//using Plugin.Media.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -50,7 +52,7 @@ namespace TTP.View
             MultipartFormDataContent form = new MultipartFormDataContent();
             StreamContent fileContent = new StreamContent(stream);
             form.Add(fileContent, "file", "upload.jpg");
-            HttpResponseMessage res = await client.PostAsync("http://192.168.1.6:8080/rest/api", form);
+            HttpResponseMessage res = await client.PostAsync(Constants.PicUrl, form);
             var responseContent = "";
             responseContent = await res.Content.ReadAsStringAsync();
             gm.Uri = responseContent;

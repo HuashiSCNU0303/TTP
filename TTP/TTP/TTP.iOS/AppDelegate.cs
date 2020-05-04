@@ -1,8 +1,4 @@
-using Syncfusion.XForms.iOS.ComboBox;
-using Syncfusion.SfGauge.XForms.iOS;
-using Syncfusion.XForms.iOS.Border;
-using Syncfusion.XForms.iOS.Buttons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,11 +22,7 @@ namespace TTP.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-global::Xamarin.Forms.Forms.Init();
-SfComboBoxRenderer.Init();
-SfDigitalGaugeRenderer.Init();
-SfBorderRenderer.Init();
-SfButtonRenderer.Init();
+            global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

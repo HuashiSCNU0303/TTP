@@ -8,7 +8,7 @@
              Shell.NavBarIsVisible="false"
              Title="Shop">
     <ContentPage.Content>
-        <Grid>  
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="70"/>

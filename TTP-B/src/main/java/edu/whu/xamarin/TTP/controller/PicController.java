@@ -15,7 +15,7 @@ public class PicController {
     @PostMapping("api")
     public @ResponseBody
     String coversUpload(MultipartFile file) throws Exception {
-        String folder = "C:/Users/79918/Desktop/work";
+        String folder = "/home/zjj";
         File imageFolder = new File(folder);
         File f = new File(imageFolder, StringUtils.getRandomString(6) + file.getOriginalFilename()
                 .substring(file.getOriginalFilename().length() - 4));
@@ -23,7 +23,7 @@ public class PicController {
             f.getParentFile().mkdirs();
         try {
             file.transferTo(f);
-            String imgURL = "http://192.168.1.6:8080/api/file/" + f.getName();
+            String imgURL = "http://47.97.196.50:8886/api/file/" + f.getName();
             return imgURL;
         } catch (IOException e) {
             e.printStackTrace();

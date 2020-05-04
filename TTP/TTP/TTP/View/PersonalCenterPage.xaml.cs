@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TTP.Model;
 using TTP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -25,14 +26,14 @@ namespace TTP.View
         public void initPersonalCenterSetting()
         {
             personalCenterSettings = new ObservableCollection<PersonalCenterSetting>();
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "数据统计", HeadImage= "statisticIcon.png", BehindImage= "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "数据统计", HeadImage = "statisticIcon.png", BehindImage = "rightArrow.png" });
             personalCenterSettings.Add(new PersonalCenterSetting { Name = "可运行软件", HeadImage = "tomato.png", BehindImage = "rightArrow.png" });
             personalCenterSettings.Add(new PersonalCenterSetting { Name = "排行", HeadImage = "rankingIcon.png", BehindImage = "rightArrow.png" });
             personalCenterSettings.Add(new PersonalCenterSetting { Name = "帮助", HeadImage = "tomato.png", BehindImage = "rightArrow.png" });
             settingList.ItemsSource = personalCenterSettings;
         }
 
-        async void OnItemSelected(object sender,SelectedItemChangedEventArgs e)
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
             {

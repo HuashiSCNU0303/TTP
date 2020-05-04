@@ -15,14 +15,14 @@ namespace TTP.View
         public MainTomatoTimerPage()
         {
             InitializeComponent();
-           showTime();
+            showTime();
         }
 
         public void showTime()
         {
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
-            Device.BeginInvokeOnMainThread(()=>labelTime.Text = DateTime.Now.ToString());
-            return true;
+                Device.BeginInvokeOnMainThread(() => labelTime.Text = DateTime.Now.ToString());
+                return true;
             });
         }
 
