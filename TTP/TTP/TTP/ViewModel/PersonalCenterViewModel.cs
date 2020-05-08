@@ -17,7 +17,20 @@ namespace TTP.ViewModel
 
         public PersonalCenterViewModel()
         {
-            currentUser = App.StaticUser;
+            User staticUser = App.StaticUser;
+            if (staticUser.Imgurl == null || staticUser.Imgurl == "")
+            {
+                currentUser = new User()
+                {
+                    Name = staticUser.Name,
+                    PassWord = staticUser.PassWord,
+                    Imgurl = "person.png"
+                };
+            }
+            else {
+                currentUser = staticUser;
+            }
+            
         }
     }
 }

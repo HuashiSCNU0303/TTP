@@ -38,7 +38,9 @@ namespace TTP
             {
                 StaticUser = new User()
                 {
-                    Name = "wo"
+                    Name = "一个测试用户",
+                    PassWord="root",
+                    Imgurl = "http://att3.citysbs.com/200x200/hangzhou/2020/04/15/11/dd6719bd4287d9efd49434c43563a032_v2_.jpg"
                 };
             }
             else

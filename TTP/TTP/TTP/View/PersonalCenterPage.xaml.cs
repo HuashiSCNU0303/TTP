@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TTP.Model;
+using TTP.Services;
 using TTP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -54,6 +57,24 @@ namespace TTP.View
                     break;
 
             }
+        }
+
+        private async void btnAdd_Clicked(object sender, EventArgs e)
+        {
+            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+
+
+
+            HttpClient client = new HttpClient();
+
+
+            MultipartFormDataContent form = new MultipartFormDataContent();
+            StreamContent fileContent = new StreamContent(stream);
+            form.Add(fileContent, "file", "upload.jpg");
+            HttpResponseMessage res = await client.PostAsync(Constants.PicUrl, form);
+            var responseContent = "";
+            responseContent = await res.Content.ReadAsStringAsync();
+            btnAdd.ImageSource = ImageSource.FromUri(new Uri(responseContent));
         }
     }
 }

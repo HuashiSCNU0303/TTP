@@ -9,5 +9,11 @@ namespace TTP.Model
     {
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        [JsonProperty(PropertyName = "passWord")]
+        public string PassWord { get; set; }
+
+        [JsonProperty(PropertyName = "imgurl")]
+        public string Imgurl { get; set; }
     }
 }

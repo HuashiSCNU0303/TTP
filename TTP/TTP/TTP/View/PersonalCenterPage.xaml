@@ -21,8 +21,14 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Frame BorderColor="Gray" HasShadow="True" CornerRadius="5" Margin="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="AliceBlue"></Frame>
-            <border:SfBorder BorderColor="LightGray" BorderWidth="3" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" Grid.Row="0" Grid.Column="0" Margin="10" >
-                <Image Source="person.png" Aspect="Fill"></Image>
+            <border:SfBorder BorderColor="LightGray" BorderWidth="3" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" Grid.Row="0" Grid.Column="0" Margin="10">
+                <Button x:Name="btnAdd" 
+                    CornerRadius="50"
+                    ImageSource="{Binding CurrentUser.Imgurl}"
+                    Clicked="btnAdd_Clicked"
+                    >
+                    <!--<Image Source="" Aspect="Fill"></Image>-->
+                </Button>
             </border:SfBorder>
 
             <border:SfBorder Grid.Row="0" Grid.Column="1" BorderColor="Transparent"  >
