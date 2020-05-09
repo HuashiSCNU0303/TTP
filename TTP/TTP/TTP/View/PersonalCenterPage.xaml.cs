@@ -63,10 +63,7 @@ namespace TTP.View
         {
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
 
-
-
             HttpClient client = new HttpClient();
-
 
             MultipartFormDataContent form = new MultipartFormDataContent();
             StreamContent fileContent = new StreamContent(stream);
