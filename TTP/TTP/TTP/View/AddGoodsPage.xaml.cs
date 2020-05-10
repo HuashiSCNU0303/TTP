@@ -33,7 +33,6 @@ namespace TTP.View
             agvm.GoodsModel.Type = comboBox.SelectedItem.ToString();
             agvm.GoodsModel.Date= DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             agvm.GoodsModel.Uri = gm.Uri;
-            agvm.GoodsModel.Price =(int)PriceTextBox.Value;
             await App.GoodsManager.AddGoodsTaskAsync(agvm.GoodsModel);
             GoodsViewModel.refresh();
             await DisplayAlert("提示", "增加成功！", "OK");
@@ -42,14 +41,11 @@ namespace TTP.View
 
         private async void SfButton_Clicked(object sender, EventArgs e)
         {
-
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream == null) return;
             
-            
-
             HttpClient client = new HttpClient();
 
-            
             MultipartFormDataContent form = new MultipartFormDataContent();
             StreamContent fileContent = new StreamContent(stream);
             form.Add(fileContent, "file", "upload.jpg");
@@ -58,7 +54,6 @@ namespace TTP.View
             responseContent = await res.Content.ReadAsStringAsync();
             gm.Uri = responseContent;
             
-
             image.Source = ImageSource.FromUri(new Uri(responseContent));
         }
     }
