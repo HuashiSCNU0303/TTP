@@ -15,12 +15,15 @@
     <PackageReference Include="MvvmLight" Version="5.4.1.1" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.1.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox" Version="18.1.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.1.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="18.1.0.46" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChat" Version="18.1.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.1.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox" Version="18.1.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.1.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="18.1.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.1.0.48" />
+    <PackageReference Include="System.Net.WebSockets.Client" Version="4.3.2" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
@@ -28,6 +31,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="View\AddGoodsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\ChatPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\DataAnalysisPage.xaml">

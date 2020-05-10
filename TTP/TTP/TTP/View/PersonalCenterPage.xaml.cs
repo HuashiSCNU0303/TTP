@@ -62,6 +62,7 @@ namespace TTP.View
         private async void btnAdd_Clicked(object sender, EventArgs e)
         {
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream == null) return;
 
             HttpClient client = new HttpClient();
 
