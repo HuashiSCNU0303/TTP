@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:sfAvatarView="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
 xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -7,12 +8,20 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
              xmlns:local="clr-namespace:TTP;assembly=TTP"
              mc:Ignorable="d"
              x:Class="TTP.View.PersonalCenterPage"
-             Shell.NavBarIsVisible="false"
+             Shell.NavBarIsVisible="True"
+             BackgroundColor="#F5F5F5"
              Title="User">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="头像更换"                  
+                     Order="Secondary"
+                     Priority="0"
+                     Clicked="btnAdd_Clicked"
+                     />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="110"/>
                 <RowDefinition Height="2"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -20,17 +29,10 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Frame BorderColor="Gray" HasShadow="True" CornerRadius="5" Margin="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="AliceBlue"></Frame>
-            <border:SfBorder BorderColor="LightGray" BorderWidth="3" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" Grid.Row="0" Grid.Column="0" Margin="10">
-                <Button x:Name="btnAdd" 
-                    CornerRadius="50"
-                    ImageSource="{Binding CurrentUser.Imgurl}"
-                    Clicked="btnAdd_Clicked"
-                    >
-                    <!--<Image Source="" Aspect="Fill"></Image>-->
-                </Button>
+            <border:SfBorder Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderColor="AliceBlue" HasShadow="True" CornerRadius="20" Margin="3">
+                <Image Source="bgPicture1.jpg" Aspect="AspectFill"></Image>
             </border:SfBorder>
-
+            <sfAvatarView:SfAvatarView x:Name="profilePicture" CornerRadius="25" VerticalOptions="Center" HorizontalOptions="Center" ContentType="AvatarCharacter" ImageSource="person.png" AvatarShape="Circle" AvatarSize="ExtraLarge" Grid.Column="0" Grid.Row="0" />
             <border:SfBorder Grid.Row="0" Grid.Column="1" BorderColor="Transparent"  >
                 <border:SfBorder.Content>
                     <Grid>
@@ -43,7 +45,7 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="15"/>
                                 <ColumnDefinition Width="45"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
@@ -57,7 +59,7 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                               Grid.Column="1"
                               Grid.ColumnSpan="3" />
                             <Label Text="太宰说过:还没开始就说不行，那就是懒惰。。。。。。。。。。。。。"           
-                              TextColor="Gray"
+                              TextColor="#404040"
                               LineBreakMode="WordWrap"
                               FontAttributes="Italic"
                               HorizontalOptions="Center"
@@ -96,15 +98,16 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                               Grid.Row="4"
                               Grid.Column="2"
                               Grid.ColumnSpan="2"/>
-                            <Image Source="timer.png" WidthRequest="10" HeightRequest="10"
+                            <Image Source="timer.png" WidthRequest="15" HeightRequest="13" Margin="0,0,0,3"
                                        HorizontalOptions="Start" VerticalOptions="Center"  Grid.Row="3" Grid.Column="0"></Image>
-                            <Image Source="tomato.png" WidthRequest="10" HeightRequest="10"
+                            <Image Source="tomato.png" WidthRequest="15" HeightRequest="13" Margin="0,0,0,3"
                                        HorizontalOptions="Start" VerticalOptions="Center"  Grid.Row="4" Grid.Column="0"></Image>
                         </Grid>
                     </Grid>
                 </border:SfBorder.Content>
             </border:SfBorder>
-            <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <BoxView Color="LightGray" HeightRequest="2" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <border:SfBorder  BorderColor="AliceBlue" HasShadow="True" CornerRadius="20" Margin="3" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="AliceBlue"/>
             <ListView x:Name="settingList" RowHeight="30" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -126,6 +129,7 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

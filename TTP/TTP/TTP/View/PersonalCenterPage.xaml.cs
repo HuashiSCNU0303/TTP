@@ -29,10 +29,10 @@ namespace TTP.View
         public void initPersonalCenterSetting()
         {
             personalCenterSettings = new ObservableCollection<PersonalCenterSetting>();
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "数据统计", HeadImage = "statisticIcon.png", BehindImage = "rightArrow.png" });
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "可运行软件", HeadImage = "tomato.png", BehindImage = "rightArrow.png" });
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "排行", HeadImage = "rankingIcon.png", BehindImage = "rightArrow.png" });
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "帮助", HeadImage = "tomato.png", BehindImage = "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "数据统计", HeadImage = "dataStatistic.png", BehindImage = "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "可运行软件", HeadImage = "apps.png", BehindImage = "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "排行", HeadImage = "rank.png", BehindImage = "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "帮助", HeadImage = "help1.png", BehindImage = "rightArrow.png" });
             settingList.ItemsSource = personalCenterSettings;
         }
 
@@ -71,7 +71,7 @@ namespace TTP.View
             HttpResponseMessage res = await client.PostAsync(Constants.PicUrl, form);
             var responseContent = "";
             responseContent = await res.Content.ReadAsStringAsync();
-            btnAdd.ImageSource = ImageSource.FromUri(new Uri(responseContent));
+            profilePicture.ImageSource = ImageSource.FromUri(new Uri(responseContent));
         }
     }
 }

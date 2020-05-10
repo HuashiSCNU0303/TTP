@@ -99,25 +99,42 @@
     <AndroidResource Include="Resources\drawable\person.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\defaultPerson.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\timer.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\tomato.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\weather.png" />
+    <AndroidResource Include="Resources\drawable\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\statisticIcon.png" />
+    <AndroidResource Include="Resources\drawable\timer1.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\rightArrow.jpg" />
+    <AndroidResource Include="Resources\drawable\person1.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\rankingIcon.png" />
+    <AndroidResource Include="Resources\drawable\shop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\weather.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rightArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="night.jpeg" />
+    <AndroidResource Include="Resources\drawable\night.jpeg" />
+    <AndroidResource Include="Resources\drawable\apps.png" />
+    <AndroidResource Include="Resources\drawable\rank.png" />
+    <AndroidResource Include="Resources\drawable\dataStatistic.png" />
+    <AndroidResource Include="Resources\drawable\help1.png" />
+    <AndroidResource Include="Resources\drawable\bgPicture1.jpg" />
+    <AndroidResource Include="Resources\drawable\sun1.png" />
+    <AndroidResource Include="Resources\drawable\sun.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
