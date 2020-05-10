@@ -41,14 +41,11 @@ namespace TTP.View
 
         private async void SfButton_Clicked(object sender, EventArgs e)
         {
-
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream == null) return;
             
-            
-
             HttpClient client = new HttpClient();
 
-            
             MultipartFormDataContent form = new MultipartFormDataContent();
             StreamContent fileContent = new StreamContent(stream);
             form.Add(fileContent, "file", "upload.jpg");
@@ -57,7 +54,6 @@ namespace TTP.View
             responseContent = await res.Content.ReadAsStringAsync();
             gm.Uri = responseContent;
             
-
             image.Source = ImageSource.FromUri(new Uri(responseContent));
         }
     }

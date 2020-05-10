@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sfChat="clr-namespace:Syncfusion.XForms.Chat;assembly=Syncfusion.SfChat.XForms"
+             xmlns:local="clr-namespace:TTP.ViewModel"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="false"
+             mc:Ignorable="d"
+             x:Class="TTP.View.ChatPage">
+
+    <ContentPage.BindingContext>
+        <local:CharPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <sfChat:SfChat x:Name="sfChat"
+                       Messages="{Binding Messages}"
+                       ShowTimeBreak="True"
+                       ShowIncomingMessageTimestamp="True"
+                       ShowOutgoingMessageTimestamp="True"
+                       IncomingMessageTimestampFormat="hh:mm tt"
+                       OutgoingMessageTimestampFormat="hh:mm tt"
+                       MessageShape="DualTearDrop"
+                       CurrentUser="{Binding CurrentUser}" 
+                       ShowOutgoingMessageAvatar="True"/>
+    </ContentPage.Content>
+</ContentPage>
