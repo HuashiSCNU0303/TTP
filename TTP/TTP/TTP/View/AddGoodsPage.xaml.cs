@@ -33,7 +33,6 @@ namespace TTP.View
             agvm.GoodsModel.Type = comboBox.SelectedItem.ToString();
             agvm.GoodsModel.Date= DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             agvm.GoodsModel.Uri = gm.Uri;
-            agvm.GoodsModel.Price =(int)PriceTextBox.Value;
             await App.GoodsManager.AddGoodsTaskAsync(agvm.GoodsModel);
             GoodsViewModel.refresh();
             await DisplayAlert("提示", "增加成功！", "OK");
