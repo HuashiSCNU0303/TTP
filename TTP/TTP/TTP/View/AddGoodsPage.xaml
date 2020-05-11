@@ -7,47 +7,77 @@
              xmlns:gradient ="clr-namespace:Syncfusion.XForms.Graphics;assembly=Syncfusion.Core.XForms"
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
-             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" xmlns:inputLayout1="clr-namespace:Syncfusion.SfNumericTextBox.XForms;assembly=Syncfusion.SfNumericTextBox.XForms"
              mc:Ignorable="d"
              x:Class="TTP.View.AddGoodsPage"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="false">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout x:Name="st">
+        <StackLayout x:Name="st">
                 <Label Text="这是增加商品页面"/>
-                <button:SfButton Text="上传图片" CornerRadius="20" Clicked="SfButton_Clicked">
-                    <button:SfButton.BackgroundGradient>
-                        <gradient:SfLinearGradientBrush>
-                            <gradient:SfLinearGradientBrush.GradientStops>
-                                <gradient:SfGradientStop Color="#2F9BDF" Offset="0"/>
-                                <gradient:SfGradientStop Color="#51F1F2" Offset="1"/>
-                            </gradient:SfLinearGradientBrush.GradientStops>
-                        </gradient:SfLinearGradientBrush>
-                    </button:SfButton.BackgroundGradient>
-                </button:SfButton>
                 <Image x:Name="image"/>
-                <inputLayout:SfTextInputLayout
-                   Hint="Enter your Id">
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter your Id"
+                TrailingViewPosition="Inside">
                     <Entry Text="{Binding GoodsModel.Id}"/>
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Image 
+                            Source = "id.png"
+                            Aspect="AspectFill"
+                            HeightRequest="30"
+                            WidthRequest="30"></Image>
+                    </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout
-                   Hint="Enter your Name">
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter name of item"
+                 TrailingViewPosition="Inside">
                     <Entry Text="{Binding GoodsModel.Name}"/>
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Image 
+                            Source = "goods.png"
+                            Aspect="AspectFill"
+                            HeightRequest="30"
+                            WidthRequest="30"></Image>
+                    </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout
-                   Hint="Enter your Price">
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter price"
+                TrailingViewPosition="Inside">
                     <Entry Text="{Binding GoodsModel.Price}"/>
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Image 
+                            Source = "price.png"
+                            Aspect="AspectFill"
+                            HeightRequest="30"
+                            WidthRequest="30"></Image>
+                    </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout
-                   Hint="Enter your Owner">
-                    <Entry Text="{Binding GoodsModel.Owner}"/>
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter your Owner"
+                    TrailingViewPosition="Inside">
+                <Entry Text="{Binding GoodsModel.Owner}"/>
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Image 
+                            Source = "id.png"
+                            Aspect="AspectFill"
+                            HeightRequest="30"
+                            WidthRequest="30"></Image>
+                    </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout
-                   Hint="Enter your Description">
-                    <Entry Text="{Binding GoodsModel.Description}"/>
-                </inputLayout:SfTextInputLayout>
-                <combobox:SfComboBox HeightRequest="40" x:Name="comboBox">
+            <inputLayout:SfTextInputLayout
+                   Hint="Enter your Description"
+                    TrailingViewPosition="Inside">
+                <Entry Text="{Binding GoodsModel.Description}"/>
+                    <inputLayout:SfTextInputLayout.LeadingView>
+                        <Image 
+                            Source = "description.png"
+                            Aspect="AspectFill"
+                            HeightRequest="30"
+                            WidthRequest="30"></Image>
+                    </inputLayout:SfTextInputLayout.LeadingView>
+             </inputLayout:SfTextInputLayout>
+            <combobox:SfComboBox HeightRequest="40" x:Name="comboBox">
                     <combobox:SfComboBox.ComboBoxSource>
                         <ListCollection:List x:TypeArguments="x:String">
                             <x:String>食品</x:String>
@@ -59,10 +89,47 @@
                         </ListCollection:List>
                     </combobox:SfComboBox.ComboBoxSource>
                 </combobox:SfComboBox>
-                <Button Text="增加" 
+                <button:SfButton 
+                    Text="上传图片" 
+                    CornerRadius="20" 
+                    Clicked="SfButton_Clicked" 
+                    ShowIcon="True" 
+                    ImageSource="upload.png"
+                    ImageWidth="30"
+                    HasShadow="True"
+                    HorizontalOptions="Center"
+                    WidthRequest="140">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="Black" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <button:SfButton.BackgroundGradient>
+                        <gradient:SfLinearGradientBrush>
+                            <gradient:SfLinearGradientBrush.GradientStops>
+                                <gradient:SfGradientStop Color="#2F9BDF" Offset="0"/>
+                                <gradient:SfGradientStop Color="#51F1F2" Offset="1"/>
+                            </gradient:SfLinearGradientBrush.GradientStops>
+                        </gradient:SfLinearGradientBrush>
+                    </button:SfButton.BackgroundGradient>
+                </button:SfButton>
+                <button:SfButton Text="确认增加" 
                     Clicked="Button_Clicked"
-                    CommandParameter="{Binding GoodsModel}"/>
+                    CommandParameter="{Binding GoodsModel}"
+                    HorizontalOptions="Center"
+                    WidthRequest="200">
+                </button:SfButton>
             </StackLayout>
-        </ScrollView>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>

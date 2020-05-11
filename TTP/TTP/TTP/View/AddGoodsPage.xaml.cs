@@ -1,4 +1,6 @@
-﻿using System;
+﻿//using Plugin.Media;
+//using Plugin.Media.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,7 +31,7 @@ namespace TTP.View
         {
             AddGoodsViewModel agvm = BindingContext as AddGoodsViewModel;
             agvm.GoodsModel.Type = comboBox.SelectedItem.ToString();
-            agvm.GoodsModel.Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            agvm.GoodsModel.Date= DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             agvm.GoodsModel.Uri = gm.Uri;
             await App.GoodsManager.AddGoodsTaskAsync(agvm.GoodsModel);
             GoodsViewModel.refresh();
@@ -39,23 +41,19 @@ namespace TTP.View
 
         private async void SfButton_Clicked(object sender, EventArgs e)
         {
-
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream == null) return;
             
-            
-
             HttpClient client = new HttpClient();
 
-            
             MultipartFormDataContent form = new MultipartFormDataContent();
             StreamContent fileContent = new StreamContent(stream);
             form.Add(fileContent, "file", "upload.jpg");
-            HttpResponseMessage res = await client.PostAsync("http://192.168.1.6:8080/rest/api", form);
+            HttpResponseMessage res = await client.PostAsync(Constants.PicUrl, form);
             var responseContent = "";
             responseContent = await res.Content.ReadAsStringAsync();
             gm.Uri = responseContent;
             
-
             image.Source = ImageSource.FromUri(new Uri(responseContent));
         }
     }
