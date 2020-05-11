@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
+                 xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+                 x:Class="TTP.View.ClockPage">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+
+    <Grid BackgroundColor="White" VerticalOptions="Center" HeightRequest="800" Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Margin="20" FontSize="Title" HorizontalOptions="Center" Text="倒计时"/>
+        <Button Grid.Row="1" Margin="20" Text="退出" x:Name="btnQuit" Clicked="btnQuit_Clicked"/>
+        <Button Grid.Row="2" Margin="20" Text="白名单应用" x:Name="btnLaunch" Clicked="btnLaunch_Clicked" />
+        <gauge:SfCircularGauge Grid.Row="3" Margin="20" x:Name="clock">
+            <gauge:SfCircularGauge.Headers>
+                <gauge:Header x:Name="header" Text="" Position="0.5, 0.5" ForegroundColor="#0682F6" FontAttributes="Bold" TextSize="20"/>
+            </gauge:SfCircularGauge.Headers>
+            <gauge:SfCircularGauge.Scales>
+                <gauge:Scale StartAngle="270" SweepAngle="360" StartValue="0" EndValue="360" Interval="30" MinorTicksPerInterval="0" ShowLabels="False" ShowTicks="False" ShowRim="False">
+                    <gauge:Scale.Ranges>
+                        <gauge:Range x:Name="range" StartValue = "0" EndValue = "360"  Thickness = "20" />
+                    </gauge:Scale.Ranges>
+                </gauge:Scale>
+            </gauge:SfCircularGauge.Scales>
+        </gauge:SfCircularGauge>
+    </Grid>
+</pages:PopupPage>

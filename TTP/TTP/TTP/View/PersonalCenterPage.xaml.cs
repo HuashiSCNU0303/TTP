@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using TTP.Model;
-using TTP.Services;
 using TTP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -29,14 +25,14 @@ namespace TTP.View
         public void initPersonalCenterSetting()
         {
             personalCenterSettings = new ObservableCollection<PersonalCenterSetting>();
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "数据统计", HeadImage = "dataStatistic.png", BehindImage = "rightArrow.png" });
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "可运行软件", HeadImage = "apps.png", BehindImage = "rightArrow.png" });
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "排行", HeadImage = "rank.png", BehindImage = "rightArrow.png" });
-            personalCenterSettings.Add(new PersonalCenterSetting { Name = "帮助", HeadImage = "help1.png", BehindImage = "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "数据统计", HeadImage= "statisticIcon.png", BehindImage= "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "可运行软件", HeadImage = "tomato.png", BehindImage = "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "排行", HeadImage = "rankingIcon.png", BehindImage = "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "帮助", HeadImage = "tomato.png", BehindImage = "rightArrow.png" });
             settingList.ItemsSource = personalCenterSettings;
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async void OnItemSelected(object sender,SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
             {
@@ -57,22 +53,6 @@ namespace TTP.View
                     break;
 
             }
-        }
-
-        private async void btnAdd_Clicked(object sender, EventArgs e)
-        {
-            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
-            if (stream == null) return;
-
-            HttpClient client = new HttpClient();
-
-            MultipartFormDataContent form = new MultipartFormDataContent();
-            StreamContent fileContent = new StreamContent(stream);
-            form.Add(fileContent, "file", "upload.jpg");
-            HttpResponseMessage res = await client.PostAsync(Constants.PicUrl, form);
-            var responseContent = "";
-            responseContent = await res.Content.ReadAsStringAsync();
-            profilePicture.ImageSource = ImageSource.FromUri(new Uri(responseContent));
         }
     }
 }
