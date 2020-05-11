@@ -34,10 +34,5 @@ namespace TTP.View
         {
             GoodsDetailViewModel gdvm = BindingContext as GoodsDetailViewModel;
         }
-
-        private void Button_Clicked_1(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ChatPage());
-        }
     }
 }

@@ -7,7 +7,7 @@
              x:Class="TTP.View.DataAnalysisPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Welcome to DataAnalysisPage!"
+            <Label Text="Welcome to DataAnalysisPage"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

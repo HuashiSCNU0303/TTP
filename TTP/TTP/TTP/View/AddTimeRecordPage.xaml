@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
+                 x:Class="TTP.View.AddTimeRecordPage">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"
+                                   PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+
+    <Grid BackgroundColor="White" VerticalOptions="Center" Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Margin="20" FontSize="Title" HorizontalOptions="Center" Text="添加记录"/>
+
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblGetHours" Grid.Row="0" Grid.Column="0" Text="小时" VerticalOptions="Center" />
+            <Entry x:Name="entryHours" Grid.Row="0" Grid.Column="1" Text="0" WidthRequest="50" HorizontalOptions="Center" />
+
+            <Label x:Name="lblGetMinutes" Grid.Row="1" Grid.Column="0" Text="分钟" VerticalOptions="Center" />
+            <Entry x:Name="entryMinutes" Grid.Row="1" Grid.Column="1" Text="0" WidthRequest="50" HorizontalOptions="Center" />
+
+        </Grid>
+
+        <Entry Grid.Row="2"
+               x:Name="entryDescription"
+               Margin="20,0,20,0" 
+               Placeholder="条目描述" 
+               PlaceholderColor="#bababa" 
+               FontSize="16" />
+
+        <Grid Grid.Row="3" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnAddRecord" Grid.Row="0" Grid.Column="0" Text="添加" BackgroundColor="#3897f0" TextColor="White" VerticalOptions="Start" Clicked="btnAddRecord_Clicked"/>
+            <Button x:Name="btnReturn"  Grid.Row="0" Grid.Column="1" Text="返回" BackgroundColor="#3897f0" TextColor="White" VerticalOptions="Start" Clicked="btnReturn_Clicked" />
+        </Grid>
+    </Grid>
+</pages:PopupPage>
