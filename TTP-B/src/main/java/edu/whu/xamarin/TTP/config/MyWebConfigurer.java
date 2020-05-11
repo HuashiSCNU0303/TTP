@@ -9,7 +9,6 @@ public class MyWebConfigurer implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/api/file/**").addResourceLocations("file:" + "/home/zjj/");
-//        registry.addResourceHandler("/api/file/**").addResourceLocations("file:" + "C:/Users/79918/Desktop/work/");
+        registry.addResourceHandler("/api/file/**").addResourceLocations("file:" + "C:/Users/79918/Desktop/work/");
     }
 }
