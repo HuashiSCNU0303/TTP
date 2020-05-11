@@ -25,7 +25,7 @@ namespace TTP.View
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ListView lv = sender as ListView;
-            
+
             var model = lv.SelectedItem as GoodsModel;
 
             if (model == null) return;
@@ -33,17 +33,24 @@ namespace TTP.View
             lv.SelectedItem = null;
             await Navigation.PushAsync(new GoodsDetailPage()
             {
-                BindingContext = new GoodsDetailViewModel() 
-                { 
-                    GoodsModel=model
+                BindingContext = new GoodsDetailViewModel()
+                {
+                    GoodsModel = model
                 }
             });
-            
+
         }
 
-        private async void btnAdd_Clicked(object sender, EventArgs e)
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddGoodsPage());
+        }
+
+        private  void ListView_Refreshing(object sender, EventArgs e)
+        {
+            GoodsViewModel.refresh();
+
+            listview.EndRefresh();
         }
     }
 }

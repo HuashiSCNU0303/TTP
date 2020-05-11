@@ -17,8 +17,16 @@ namespace TTP.ViewModel
         public CharPageViewModel()
         {
             messages = new ObservableCollection<object>();
-            currentUser = new AUser() { Name = "张俊杰", Avatar = "person.png" ,UserId=14};
-            sendToUser=new AUser { Name = "朋友", Avatar = "person.png", UserId = Constants.sendToUserId };
+            currentUser = new AUser() { Name = "张俊杰", Avatar = "person.png", UserId = 14 };
+            sendToUser = new AUser { Name = "朋友", Avatar = "person.png", UserId = 14 };
+            GenerateMessages();
+        }
+
+        public CharPageViewModel(AUser a,AUser b)
+        {
+            messages = new ObservableCollection<object>();
+            currentUser = a;
+            sendToUser = b;
             GenerateMessages();
         }
 

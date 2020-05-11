@@ -37,7 +37,23 @@ namespace TTP.View
 
         private void Button_Clicked_1(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChatPage());
+            GoodsDetailViewModel gdvm = BindingContext as GoodsDetailViewModel;
+            CharPageViewModel.AUser CurrentUser = new CharPageViewModel.AUser()
+            {
+                UserId = App.StaticUser.UserId,
+                Name = App.StaticUser.Name,
+                Avatar = App.StaticUser.Imgurl
+            };
+            CharPageViewModel.AUser SendToUser = new CharPageViewModel.AUser()
+            {
+                UserId = gdvm.GoodsModel.UserId,
+                Name = gdvm.GoodsModel.User.Name,
+                Avatar = gdvm.GoodsModel.User.Imgurl
+            };
+            Navigation.PushAsync(new ChatPage()
+            {
+                BindingContext = new CharPageViewModel(CurrentUser,SendToUser)
+            });
         }
     }
 }

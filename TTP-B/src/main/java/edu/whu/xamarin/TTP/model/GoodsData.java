@@ -17,7 +17,7 @@ import java.util.Date;
 @Entity
 @Table(name="goodsDataTable")
 public class GoodsData {
-    public enum TYPE { 食品, 服装, 鞋帽, 日用品, 家具, 纺织}
+    public enum TYPE { 工具, 服装, 电子, 其他}
 
 //    @Id
 //    @GeneratedValue
@@ -35,7 +35,7 @@ public class GoodsData {
     private TYPE type;
 
     @Column(nullable = false,length = 32)
-    public String owner;
+    public Long userId;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
     private Date date;

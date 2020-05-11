@@ -32,7 +32,17 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
             <border:SfBorder Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderColor="AliceBlue" HasShadow="True" CornerRadius="20" Margin="3">
                 <Image Source="bgPicture1.jpg" Aspect="AspectFill"></Image>
             </border:SfBorder>
-            <sfAvatarView:SfAvatarView x:Name="profilePicture" CornerRadius="25" VerticalOptions="Center" HorizontalOptions="Center" ContentType="AvatarCharacter" ImageSource="person.png" AvatarShape="Circle" AvatarSize="ExtraLarge" Grid.Column="0" Grid.Row="0" />
+            <sfAvatarView:SfAvatarView
+                x:Name="profilePicture" 
+                ContentType="Custom"
+                CornerRadius="25" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                ImageSource="{Binding CurrentUser.Imgurl}" 
+                AvatarShape="Circle" 
+                AvatarSize="ExtraLarge" 
+                Grid.Column="0" 
+                Grid.Row="0" />
             <border:SfBorder Grid.Row="0" Grid.Column="1" BorderColor="Transparent"  >
                 <border:SfBorder.Content>
                     <Grid>

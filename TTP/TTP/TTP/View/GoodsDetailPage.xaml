@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+              xmlns:sfAvatarView="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
              xmlns:local="clr-namespace:TTP;assembly=TTP"
              mc:Ignorable="d"
              x:Class="TTP.View.GoodsDetailPage"
@@ -12,24 +14,103 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Image Source="{Binding GoodsModel.Uri}"/>
-                <StackLayout Margin="20,35,20,25">
-                    <Button Text="click" Clicked="Button_Clicked_1"></Button>
-                    <Label Text="商品名：" />
-                    <Label Text="{Binding GoodsModel.Name}"/>
-                    <Label Text="价格：" />
-                    <Label Text="{Binding GoodsModel.Price}"/>
-                    <Label Text="分类：" />
-                    <Label Text="{Binding GoodsModel.Type}"/>
-                    <Label Text="发布者：" />
-                    <Label Text="{Binding GoodsModel.Owner}"/>
-                    <Label Text="发布时间：" />
-                    <Label Text="{Binding GoodsModel.Date}"/>
-                    <Label Text="商品描述：" />
-                    <Label Text="{Binding GoodsModel.Description}"/>
-                    <Button Text="detele" 
-                        Clicked="Button_Clicked"/>
-                </StackLayout>
+                <border:SfBorder  
+                    BorderColor="AliceBlue" 
+                    HasShadow="True" 
+                    CornerRadius="20" 
+                    Margin="3" 
+                    BackgroundColor="AliceBlue">
+                    <Image Source="{Binding GoodsModel.Uri}"/>
+                 </border:SfBorder>
+                <border:SfBorder  
+                    BorderColor="AliceBlue" 
+                    HasShadow="True" 
+                    CornerRadius="20" 
+                    Margin="3" 
+                    BackgroundColor="AliceBlue">
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding GoodsModel.User.Name}" 
+                               Grid.Row="0"
+                                    VerticalOptions="StartAndExpand" 
+                                    HorizontalOptions="Center"></Label>
+                        <sfAvatarView:SfAvatarView 
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    CornerRadius="25" 
+                                    VerticalOptions="CenterAndExpand" 
+                                    HorizontalOptions="Center" 
+                                    ContentType="Custom" 
+                                    ImageSource="{Binding GoodsModel.User.Imgurl}" 
+                                    AvatarShape="Circle" 
+                                    AvatarSize="ExtraLarge" 
+                                    Grid.Column="0" />
+                        <Button Text="私聊" 
+                                Clicked="Button_Clicked_1" 
+                                Grid.Row="0"
+                                Grid.Column="1"></Button>
+                        <Button Text="删除" 
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Clicked="Button_Clicked"/>
+                    </Grid>
+                </border:SfBorder>
+
+                <border:SfBorder  
+                    BorderColor="AliceBlue" 
+                    HasShadow="True" 
+                    CornerRadius="20" 
+                    Margin="3" 
+                    BackgroundColor="AliceBlue">
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding GoodsModel.Name}" 
+                               Grid.Row="0" 
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"
+                               FontAttributes="Bold" 
+                               TextColor="#6495ED" 
+                               FontSize="20"/>
+                        <Label Text="{Binding GoodsModel.Price}" Grid.Row="1" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"/>
+                        <Label Text="{Binding GoodsModel.Type}" 
+                               Grid.Row="1" 
+                               Grid.Column="1"
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"/>
+                        <Label Text="{Binding GoodsModel.Description}"  
+                               Grid.Row="2" Grid.RowSpan="2" 
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"/>
+                        <Label Text="{Binding GoodsModel.Date}" 
+                               Grid.Row="4"
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"/>
+                        
+                    </Grid>
+                </border:SfBorder>
+                
             </StackLayout>
         </ScrollView>
             

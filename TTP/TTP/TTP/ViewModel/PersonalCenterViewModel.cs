@@ -7,7 +7,7 @@ using TTP.Model;
 
 namespace TTP.ViewModel
 {
-    class PersonalCenterViewModel : ViewModelBase
+    public class PersonalCenterViewModel : ViewModelBase
     {
         private static User currentUser;
         public User CurrentUser
@@ -22,7 +22,7 @@ namespace TTP.ViewModel
         }
 
         public async void getUser() {
-            User user = await App.UserManager.GetUserTasksAsync(16);
+            User user = await App.UserManager.GetUserTasksAsync(20);
             CurrentUser = user;
             if (CurrentUser.Imgurl == null || CurrentUser.Imgurl == "")
             {

@@ -33,6 +33,10 @@ namespace TTP.View
             agvm.GoodsModel.Type = comboBox.SelectedItem.ToString();
             agvm.GoodsModel.Date= DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             agvm.GoodsModel.Uri = gm.Uri;
+            agvm.GoodsModel.UserId = App.StaticUser.UserId;
+            Random ran = new Random();
+            long RandKey = ran.Next(0, 999999999);
+            agvm.GoodsModel.Id = RandKey;
             await App.GoodsManager.AddGoodsTaskAsync(agvm.GoodsModel);
             GoodsViewModel.refresh();
             await DisplayAlert("提示", "增加成功！", "OK");

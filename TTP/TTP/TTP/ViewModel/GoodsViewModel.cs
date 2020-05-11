@@ -24,7 +24,12 @@ namespace TTP.ViewModel
         public async static void refresh() {
             List<GoodsModel> list = await App.GoodsManager.GetGoodsTasksAsync();
             goodsModels.Clear();
-            list.ForEach(g => goodsModels.Add(g));
+            list.ForEach(async g => 
+            {
+                User user = await App.UserManager.GetUserTasksAsync(g.UserId);
+                g.User = user;
+                goodsModels.Add(g);
+            });
         }
     }
 }

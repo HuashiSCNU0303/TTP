@@ -25,16 +25,19 @@ namespace TTP.Model
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
         //物品拥有者
-        [JsonProperty(PropertyName = "owner")]
-        public string Owner { get; set; }
+        [JsonProperty(PropertyName = "userId")]
+        public long UserId { get; set; }
         //物品发布时间
         [JsonProperty(PropertyName = "date")]
         public string Date { get; set; }
         //物品的描述，一般由发布者写入
         [JsonProperty(PropertyName = "description")]
-        public string Description { get; set;}
+        public string Description { get; set; }
         //
         [JsonProperty(PropertyName = "uri")]
         public string Uri { get; set; }
+
+        [JsonIgnore]
+        public User User { get; set; }
     }
 }

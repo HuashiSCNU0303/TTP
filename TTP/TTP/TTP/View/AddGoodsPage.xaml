@@ -17,19 +17,7 @@
         <StackLayout x:Name="st">
                 <Label Text="这是增加商品页面"/>
                 <Image x:Name="image"/>
-            <inputLayout:SfTextInputLayout
-                   Hint="Enter your Id"
-                TrailingViewPosition="Inside">
-                    <Entry Text="{Binding GoodsModel.Id}"/>
-                    <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image 
-                            Source = "id.png"
-                            Aspect="AspectFill"
-                            HeightRequest="30"
-                            WidthRequest="30"></Image>
-                    </inputLayout:SfTextInputLayout.LeadingView>
-                </inputLayout:SfTextInputLayout>
-            <inputLayout:SfTextInputLayout
+                <inputLayout:SfTextInputLayout
                    Hint="Enter name of item"
                  TrailingViewPosition="Inside">
                     <Entry Text="{Binding GoodsModel.Name}"/>
@@ -53,18 +41,7 @@
                             WidthRequest="30"></Image>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
-            <inputLayout:SfTextInputLayout
-                   Hint="Enter your Owner"
-                    TrailingViewPosition="Inside">
-                <Entry Text="{Binding GoodsModel.Owner}"/>
-                    <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image 
-                            Source = "id.png"
-                            Aspect="AspectFill"
-                            HeightRequest="30"
-                            WidthRequest="30"></Image>
-                    </inputLayout:SfTextInputLayout.LeadingView>
-                </inputLayout:SfTextInputLayout>
+            
             <inputLayout:SfTextInputLayout
                    Hint="Enter your Description"
                     TrailingViewPosition="Inside">
@@ -80,12 +57,10 @@
             <combobox:SfComboBox HeightRequest="40" x:Name="comboBox">
                     <combobox:SfComboBox.ComboBoxSource>
                         <ListCollection:List x:TypeArguments="x:String">
-                            <x:String>食品</x:String>
+                            <x:String>工具</x:String>
                             <x:String>服装</x:String>
-                            <x:String>鞋帽</x:String>
-                            <x:String>日用品</x:String>
-                            <x:String>家具</x:String>
-                            <x:String>纺织</x:String>
+                            <x:String>电子</x:String>
+                            <x:String>其他</x:String>
                         </ListCollection:List>
                     </combobox:SfComboBox.ComboBoxSource>
                 </combobox:SfComboBox>
