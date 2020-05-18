@@ -12,28 +12,37 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.442" />
+    <PackageReference Include="CHD.HWBackButtonManager" Version="1.0.1" />
     <PackageReference Include="MvvmLight" Version="5.4.1.1" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.48" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.48" />
-    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="18.1.0.48" />
-    <PackageReference Include="Syncfusion.Xamarin.SfChat" Version="18.1.0.48" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.1.0.48" />
-    <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox" Version="18.1.0.48" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.1.0.48" />
-    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.1.0.48" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChat" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="18.1.0.52" />
     <PackageReference Include="System.Net.WebSockets.Client" Version="4.3.2" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.772" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="View\AddGoodsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="View\AddTimeRecordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="View\ChatPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\ClockPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\DataAnalysisPage.xaml">
@@ -55,6 +64,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\ShoppingMallPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\WhiteListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\WhiteListSettingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

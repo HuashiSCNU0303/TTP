@@ -22,8 +22,8 @@ namespace TTP.View
         {
             InitializeComponent();
             BindingContext = new PersonalCenterViewModel();
+            Console.WriteLine("初始化个人信息！");
             initPersonalCenterSetting();
-
         }
 
         public void initPersonalCenterSetting()
@@ -48,6 +48,9 @@ namespace TTP.View
             {
                 case 0:
                     await Navigation.PushModalAsync(new DataAnalysisPage());
+                    break;
+                case 1:
+                    await Navigation.PushModalAsync(new WhiteListSettingPage());
                     break;
                 case 2:
                     await Navigation.PushModalAsync(new RankingPage());

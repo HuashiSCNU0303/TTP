@@ -12,6 +12,7 @@ namespace TTP
         public static string PicUrl = BaseUrl + "/rest/api";
         public static string UserUrl = BaseUrl + "/rest/user/{0}";
         public static string TomatoTimeUrl = BaseUrl + "/rest/tomatoTime/{0}";
+        public static string AppUrl = BaseUrl + "/rest/userPackage/{0}";
         public static long sendToUserId = 21;
         public static long currentUserId = 12;
     }

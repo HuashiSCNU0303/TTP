@@ -33,7 +33,7 @@ xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Butto
                    FontAttributes="Bold" TextColor="#6495ED" FontSize="20" />
             <Label Text="13小时20分钟" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".1,.21,.3,.05" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
             <Label Text="200" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".1,.25,.3,.05" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
-            <Button BackgroundColor="#2A52BE" FontSize="30" Text="+" TextColor="White" AbsoluteLayout.LayoutBounds="1,.9,60,60" 
+            <Button BackgroundColor="#2A52BE" FontSize="30" Text="+" TextColor="White" AbsoluteLayout.LayoutBounds="1,.9,60,60" Clicked="SfButton_Clicked"
                     AbsoluteLayout.LayoutFlags="PositionProportional" BorderRadius="30" />
         </AbsoluteLayout>
     </ContentPage.Content>
