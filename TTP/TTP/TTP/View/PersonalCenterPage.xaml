@@ -17,6 +17,11 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                      Priority="0"
                      Clicked="btnAdd_Clicked"
                      />
+        <ToolbarItem Text="登陆/注册"                  
+                     Order="Secondary"
+                     Priority="2"
+                     Clicked="ToolbarItem_Clicked"
+                     />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
@@ -99,7 +104,7 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                               Grid.Row="3"
                               Grid.Column="2"
                               Grid.ColumnSpan="2"/>
-                            <Label Text="200"
+                            <Label Text="{Binding CurrentUser.TomatoPoints}"
                               TextColor="Black"
                               FontAttributes="Bold"
                               HorizontalOptions="Start"

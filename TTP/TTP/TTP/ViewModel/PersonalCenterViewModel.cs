@@ -9,11 +9,16 @@ namespace TTP.ViewModel
 {
     public class PersonalCenterViewModel : ViewModelBase
     {
-        private static User currentUser;
+        public static User currentUser;
         public User CurrentUser
         {
             get { return currentUser; }
-            set { currentUser = value; RaisePropertyChanged(); }
+            set 
+            { 
+                currentUser = value;
+                App.StaticUser = CurrentUser;
+                RaisePropertyChanged(); 
+            }
         }
         public PersonalCenterViewModel()
         {
@@ -21,14 +26,12 @@ namespace TTP.ViewModel
             getUser();
         }
 
-        public async void getUser() {
-            User user = await App.UserManager.GetUserTasksAsync(20);
-            CurrentUser = user;
-            if (CurrentUser.Imgurl == null || CurrentUser.Imgurl == "")
+        public static void getUser() {
+            currentUser = App.StaticUser;
+            if (currentUser.Imgurl == null || currentUser.Imgurl == "")
             {
-                CurrentUser.Imgurl = "person.png";
+                currentUser.Imgurl = "person.png";
             }
-            App.StaticUser = CurrentUser;
         }
     }
 }

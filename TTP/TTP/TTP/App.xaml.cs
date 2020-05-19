@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TTP.Data;
 using TTP.Model;
+using TTP.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -47,8 +48,6 @@ namespace TTP
 
         protected override void OnStart()
         {
-            
-            
         }
 
         protected override void OnSleep()

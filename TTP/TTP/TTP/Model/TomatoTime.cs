@@ -21,5 +21,8 @@ namespace TTP.Model
         //当前用户id
         [JsonProperty(PropertyName = "userId")]
         public long UserId { get; set; }
+
+        [JsonProperty(PropertyName = "description")]
+        public String Description { get; set; }
     }
 }

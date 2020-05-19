@@ -29,7 +29,7 @@ public class TomatoTime {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date beginTime;
 
-    private Long description;
+    private String description;
 
     private Long userId;
 }

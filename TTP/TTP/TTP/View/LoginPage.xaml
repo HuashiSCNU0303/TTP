@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             mc:Ignorable="d"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="false"
+             x:Class="TTP.View.LoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <inputLayout:SfTextInputLayout
+                Hint="Name" 
+                ContainerType="Outlined"
+                OutlineCornerRadius="8">
+                <Entry Text="{Binding Name}" />
+            </inputLayout:SfTextInputLayout>
+            <inputLayout:SfTextInputLayout
+                Hint="Password" 
+                ContainerType="Outlined"
+                OutlineCornerRadius="8">
+                <Entry Text="{Binding PassWord}" />
+            </inputLayout:SfTextInputLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="登陆" Grid.Column="0" Clicked="Button_Clicked"></Button>
+                <Button Text="注册" Grid.Column="1" Clicked="Button_Clicked_1"></Button>
+            </Grid>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

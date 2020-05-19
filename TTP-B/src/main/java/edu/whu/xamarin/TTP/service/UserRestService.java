@@ -11,5 +11,7 @@ public interface UserRestService {
 
     void updateUser(User user);
 
-    User getUser(Long id);
+    User getUser(String userName);
+
+    User getUserById(Long id);
 }

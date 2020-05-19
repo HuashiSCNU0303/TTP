@@ -74,29 +74,6 @@
                     HasShadow="True"
                     HorizontalOptions="Center"
                     WidthRequest="140">
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="TextColor" Value="White" />
-                                </VisualState.Setters>
-                            </VisualState>
-
-                            <VisualState x:Name="Pressed">
-                                <VisualState.Setters>
-                                    <Setter Property="TextColor" Value="Black" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateManager.VisualStateGroups>
-                    <button:SfButton.BackgroundGradient>
-                        <gradient:SfLinearGradientBrush>
-                            <gradient:SfLinearGradientBrush.GradientStops>
-                                <gradient:SfGradientStop Color="#2F9BDF" Offset="0"/>
-                                <gradient:SfGradientStop Color="#51F1F2" Offset="1"/>
-                            </gradient:SfLinearGradientBrush.GradientStops>
-                        </gradient:SfLinearGradientBrush>
-                    </button:SfButton.BackgroundGradient>
                 </button:SfButton>
                 <button:SfButton Text="确认增加" 
                     Clicked="Button_Clicked"

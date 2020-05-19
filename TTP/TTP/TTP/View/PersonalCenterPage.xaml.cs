@@ -24,6 +24,7 @@ namespace TTP.View
             BindingContext = new PersonalCenterViewModel();
             Console.WriteLine("初始化个人信息！");
             initPersonalCenterSetting();
+            this.Appearing += (sender, args) => { getBinding(); };
         }
 
         public void initPersonalCenterSetting()
@@ -66,9 +67,7 @@ namespace TTP.View
         {
             Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
             if (stream == null) return;
-
             HttpClient client = new HttpClient();
-
             MultipartFormDataContent form = new MultipartFormDataContent();
             StreamContent fileContent = new StreamContent(stream);
             form.Add(fileContent, "file", "upload.jpg");
@@ -76,6 +75,18 @@ namespace TTP.View
             var responseContent = "";
             responseContent = await res.Content.ReadAsStringAsync();
             profilePicture.ImageSource = ImageSource.FromUri(new Uri(responseContent));
+            PersonalCenterViewModel pc = BindingContext as PersonalCenterViewModel;
+            pc.CurrentUser.Imgurl = responseContent;
+            await App.UserManager.ModifyUserTaskAsync(pc.CurrentUser);
+        }
+
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage()); 
+        }
+
+        private void getBinding() {
+            BindingContext = new PersonalCenterViewModel();
         }
     }
 }

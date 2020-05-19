@@ -79,7 +79,8 @@ namespace TTP.View
             {
                 BeginTime = startTime.ToString("yyyy-MM-dd HH:mm:ss"),
                 EndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                UserId = 16
+                UserId = App.StaticUser.UserId,
+                Description = description
             };
             await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
 

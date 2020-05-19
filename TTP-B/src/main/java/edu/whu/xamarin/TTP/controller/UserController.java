@@ -41,8 +41,13 @@ public class UserController {
         return user;
     }
 
+    @GetMapping( "/user/api/{userName}")
+    public @ResponseBody User getUserById(@PathVariable String userName) {
+        return userRestService.getUser(userName);
+    }
+
     @GetMapping( "/user/{id}")
-    public @ResponseBody User getUserById(@PathVariable Long id) {
-        return userRestService.getUser(id);
+    public @ResponseBody User getUser(@PathVariable Long id) {
+        return userRestService.getUserById(id);
     }
 }

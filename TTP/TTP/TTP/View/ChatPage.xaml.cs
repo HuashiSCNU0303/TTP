@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.WebSockets;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,13 +22,14 @@ namespace TTP.View
     {
         private ClientWebSocket client;
         private CancellationTokenSource cts;
+        private Thread thread;
         public ChatPage()
         {
             InitializeComponent();
             sfChat.SendMessage += SfChat_SendMessage;
             client = new ClientWebSocket();
             cts = new CancellationTokenSource();
-            Thread thread = new Thread(() =>
+            thread = new Thread(() =>
             {
                 ConnectToServerAsync();
             });
@@ -64,7 +66,7 @@ namespace TTP.View
                             {
                                 charPageViewModel.Messages.Add(new TextMessage()
                                 {
-                                    Author = new Author() { Name = "Andrea", Avatar = "person.png" },
+                                    Author = new Author() { Name = charPageViewModel.SendToUser.Name, Avatar = charPageViewModel.SendToUser.Avatar },
                                     Text = serialisedMessae
                                 }
                                 );

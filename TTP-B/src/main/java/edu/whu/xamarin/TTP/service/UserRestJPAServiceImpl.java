@@ -34,7 +34,12 @@ public class UserRestJPAServiceImpl implements UserRestService {
     }
 
     @Override
-    public User getUser(Long id) {
+    public User getUser(String userName) {
+        return userRepository.getByUserName(userName);
+    }
+
+    @Override
+    public User getUserById(Long id) {
         return userRepository.findById(id).get();
     }
 }

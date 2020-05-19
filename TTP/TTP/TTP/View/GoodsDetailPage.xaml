@@ -56,7 +56,7 @@
                                 Clicked="Button_Clicked_1" 
                                 Grid.Row="0"
                                 Grid.Column="1"></Button>
-                        <Button Text="删除" 
+                        <Button x:Name="bt" 
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 Clicked="Button_Clicked"/>

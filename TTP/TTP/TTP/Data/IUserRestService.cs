@@ -15,5 +15,7 @@ namespace TTP.Data
         Task ModifyUserAsync(User user);
 
         Task<User> GetUserAsync(long id);
+
+        Task<User> GetUserByNameAsync(String userName);
     }
 }

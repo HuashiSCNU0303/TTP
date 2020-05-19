@@ -35,7 +35,7 @@ namespace TTP.View
             agvm.GoodsModel.Uri = gm.Uri;
             agvm.GoodsModel.UserId = App.StaticUser.UserId;
             Random ran = new Random();
-            long RandKey = ran.Next(0, 999999999);
+            long RandKey = ran.Next(0, 9999);
             agvm.GoodsModel.Id = RandKey;
             await App.GoodsManager.AddGoodsTaskAsync(agvm.GoodsModel);
             GoodsViewModel.refresh();

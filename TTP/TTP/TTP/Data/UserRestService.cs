@@ -108,5 +108,32 @@ namespace TTP.Data
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
         }
+
+        public async Task<User> GetUserByNameAsync(String userName)
+        {
+            RestUser = new User();
+
+
+            var uri = new Uri(string.Format(Constants.UserApiUrl, userName));
+            try
+            {
+                var response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    RestUser = JsonConvert.DeserializeObject<User>(content);
+                }
+                else
+                {
+                    Debug.WriteLine(@"\tERROR {0}", response.Content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tERROR {0}", ex.Message);
+            }
+
+            return RestUser;
+        }
     }
 }
