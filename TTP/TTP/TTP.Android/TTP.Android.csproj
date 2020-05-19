@@ -148,6 +148,7 @@
     <AndroidResource Include="Resources\drawable\bgPicture1.jpg" />
     <AndroidResource Include="Resources\drawable\sun1.png" />
     <AndroidResource Include="Resources\drawable\sun.png" />
+    <AndroidResource Include="Resources\drawable\imageNull.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\id.png" />

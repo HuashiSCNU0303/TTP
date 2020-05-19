@@ -16,7 +16,13 @@
         <ScrollView>
         <StackLayout x:Name="st">
                 <Label Text="这是增加商品页面"/>
-                <Image x:Name="image"/>
+                <ImageButton 
+                    x:Name="image"
+                    Source="imageNull.png"
+                    HeightRequest="{OnPlatform iOS=300, Android=250}"
+                    WidthRequest="{OnPlatform iOS=300, Android=250}"
+                    Clicked="SfButton_Clicked"
+                    Aspect="AspectFit"/>
                 <inputLayout:SfTextInputLayout
                    Hint="Enter name of item"
                  TrailingViewPosition="Inside">
@@ -54,7 +60,8 @@
                             WidthRequest="30"></Image>
                     </inputLayout:SfTextInputLayout.LeadingView>
              </inputLayout:SfTextInputLayout>
-            <combobox:SfComboBox HeightRequest="40" x:Name="comboBox">
+                <Label>物品类别</Label>
+                <combobox:SfComboBox HeightRequest="40" x:Name="comboBox">
                     <combobox:SfComboBox.ComboBoxSource>
                         <ListCollection:List x:TypeArguments="x:String">
                             <x:String>工具</x:String>
@@ -65,21 +72,13 @@
                     </combobox:SfComboBox.ComboBoxSource>
                 </combobox:SfComboBox>
                 <button:SfButton 
-                    Text="上传图片" 
-                    CornerRadius="20" 
-                    Clicked="SfButton_Clicked" 
-                    ShowIcon="True" 
-                    ImageSource="upload.png"
-                    ImageWidth="30"
-                    HasShadow="True"
-                    HorizontalOptions="Center"
-                    WidthRequest="140">
-                </button:SfButton>
-                <button:SfButton Text="确认增加" 
+                    Text="确认增加" 
+                    BackgroundColor="CornflowerBlue"
                     Clicked="Button_Clicked"
                     CommandParameter="{Binding GoodsModel}"
                     HorizontalOptions="Center"
-                    WidthRequest="200">
+                    WidthRequest="200"
+                    CornerRadius="30">
                 </button:SfButton>
             </StackLayout>
             </ScrollView>
