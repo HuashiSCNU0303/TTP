@@ -1,15 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:TTP="clr-namespace:TTP.ViewModel"
              mc:Ignorable="d"
              x:Class="TTP.View.DataAnalysisPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Welcome to DataAnalysisPage!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <ScrollView>
+            <StackLayout>
+                <border:SfBorder BorderColor="AliceBlue" BorderWidth="2" Margin="10" HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="300">
+                <chart:SfChart   >
+                <chart:SfChart.BindingContext>
+                    <TTP:DataAnalysisViewModel/>
+                </chart:SfChart.BindingContext>
+                <chart:SfChart.Title>
+                    <chart:ChartTitle Text="年度时间统计" />
+                </chart:SfChart.Title>
+                <chart:SfChart.PrimaryAxis>
+                    <chart:DateTimeAxis EdgeLabelsDrawingMode="Shift" ZoomFactor="0.4" ZoomPosition="1">
+                        <chart:DateTimeAxis.Title>
+                            <chart:ChartAxisTitle Text="" />
+                        </chart:DateTimeAxis.Title>
+                    </chart:DateTimeAxis>
+                </chart:SfChart.PrimaryAxis>
+                <chart:SfChart.SecondaryAxis>
+                    <chart:NumericalAxis>
+                        <chart:NumericalAxis.Title>
+                            <chart:ChartAxisTitle Text="时间（分钟）" />
+                        </chart:NumericalAxis.Title>
+                    </chart:NumericalAxis>
+                </chart:SfChart.SecondaryAxis>
+                <chart:SfChart.ChartBehaviors>
+                    <chart:ChartZoomPanBehavior EnableSelectionZooming="False" ZoomMode="X" MaximumZoomLevel="200"/>
+                </chart:SfChart.ChartBehaviors>
+                    <chart:SfChart.Series>
+                        <chart:FastLineSeries ItemsSource="{Binding DataList}" XBindingPath="date" YBindingPath="minute" EnableTooltip="True">
+                            <chart:FastLineSeries.ColorModel>
+                                <chart:ChartColorModel Palette="Metro"/>
+                            </chart:FastLineSeries.ColorModel>
+                        </chart:FastLineSeries>
+                    </chart:SfChart.Series>
+                </chart:SfChart>
+            </border:SfBorder>
+
+
+                <border:SfBorder BorderColor="AliceBlue" BorderWidth="2" Margin="10" HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="300">
+                    <chart:SfChart   >
+                        <chart:SfChart.BindingContext>
+                            <TTP:DataAnalysisViewModel/>
+                        </chart:SfChart.BindingContext>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="月度时间统计" />
+                        </chart:SfChart.Title>
+                        <chart:SfChart.PrimaryAxis>
+                            <chart:DateTimeAxis EdgeLabelsDrawingMode="Shift" ZoomFactor="0.2" ZoomPosition="1">
+                                <chart:DateTimeAxis.Title>
+                                    <chart:ChartAxisTitle Text="" />
+                                </chart:DateTimeAxis.Title>
+                            </chart:DateTimeAxis>
+                        </chart:SfChart.PrimaryAxis>
+                        <chart:SfChart.SecondaryAxis>
+                            <chart:NumericalAxis>
+                                <chart:NumericalAxis.Title>
+                                    <chart:ChartAxisTitle Text="时间（分钟）" />
+                                </chart:NumericalAxis.Title>
+                            </chart:NumericalAxis>
+                        </chart:SfChart.SecondaryAxis>
+                        <chart:SfChart.ChartBehaviors>
+                            <chart:ChartZoomPanBehavior EnableSelectionZooming="False" ZoomMode="X" MaximumZoomLevel="200"/>
+                        </chart:SfChart.ChartBehaviors>
+                        <chart:SfChart.Series>
+                            <chart:FastLineSeries ItemsSource="{Binding DataList}" XBindingPath="date.Day" YBindingPath="minute" EnableTooltip="True">
+                                <chart:FastLineSeries.ColorModel>
+                                    <chart:ChartColorModel Palette="Metro"/>
+                                </chart:FastLineSeries.ColorModel>
+                            </chart:FastLineSeries>
+                        </chart:SfChart.Series>
+                    </chart:SfChart>
+                </border:SfBorder>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

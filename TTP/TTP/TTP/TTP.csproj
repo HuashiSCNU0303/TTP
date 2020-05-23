@@ -20,6 +20,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.52" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.52" />
     <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="18.1.0.52" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.1.0.52" />
     <PackageReference Include="Syncfusion.Xamarin.SfChat" Version="18.1.0.52" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.1.0.52" />
     <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="18.1.0.52" />

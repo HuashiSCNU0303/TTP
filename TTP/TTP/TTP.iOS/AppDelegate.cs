@@ -1,3 +1,5 @@
+using Syncfusion.XForms.iOS.Border;
+using Syncfusion.SfChart.XForms.iOS.Renderers;
 using Syncfusion.XForms.iOS.Core;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,8 @@ namespace TTP.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
 global::Xamarin.Forms.Forms.Init();
+SfBorderRenderer.Init();
+SfChartRenderer.Init();
 SfAvatarViewRenderer.Init();
             LoadApplication(new App());
 
