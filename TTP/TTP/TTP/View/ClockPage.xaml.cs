@@ -82,8 +82,10 @@ namespace TTP.View
                 UserId = App.StaticUser.UserId,
                 Description = description
             };
+            int p = (DateTime.Now.Subtract(startTime).Minutes + 1) / 15+1;
             await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
-
+            App.StaticUser.TomatoPoints += p;
+            await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
             App.IsClockPageOn = false;
             await DisplayAlert("锁机结束", "结束啦！", "OK");
             // 加一个铃声提醒

@@ -10,7 +10,7 @@ namespace TTP.Data
     {
         Task DeleteUserAsync(long id);
 
-        Task AddUserAsync(User user);
+        Task<User> AddUserAsync(User user);
 
         Task ModifyUserAsync(User user);
 

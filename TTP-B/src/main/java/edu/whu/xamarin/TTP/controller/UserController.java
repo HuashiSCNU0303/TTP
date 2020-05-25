@@ -25,6 +25,7 @@ public class UserController {
     @PostMapping("/user")
     public @ResponseBody
     User saveUser(@RequestBody User user) {
+        user.setUserId(null);
         User user1= userRestService.saveUser(user);
         userPackageService.saveUserPackage(new UserPackage().builder().userId(user1.getUserId()).userPackage("com.companyname.ttp").build());
         return  user1;

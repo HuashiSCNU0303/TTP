@@ -75,9 +75,8 @@ namespace TTP.View
             var responseContent = "";
             responseContent = await res.Content.ReadAsStringAsync();
             profilePicture.ImageSource = ImageSource.FromUri(new Uri(responseContent));
-            PersonalCenterViewModel pc = BindingContext as PersonalCenterViewModel;
-            pc.CurrentUser.Imgurl = responseContent;
-            await App.UserManager.ModifyUserTaskAsync(pc.CurrentUser);
+            App.StaticUser.Imgurl = responseContent;
+            await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
         }
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)

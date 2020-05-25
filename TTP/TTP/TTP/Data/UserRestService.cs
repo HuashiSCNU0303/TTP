@@ -18,7 +18,7 @@ namespace TTP.Data
         {
             _client = new HttpClient();
         }
-        public async Task AddUserAsync(User user)
+        public async Task<User> AddUserAsync(User user)
         {
             var uri = new Uri(string.Format(Constants.UserUrl, string.Empty));
             try
@@ -29,12 +29,22 @@ namespace TTP.Data
 
                 HttpResponseMessage response = null;
                 response = await _client.PostAsync(uri, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content2 = await response.Content.ReadAsStringAsync();
+                    RestUser = JsonConvert.DeserializeObject<User>(content2);
+                }
+                else
+                {
+                    Debug.WriteLine(@"\tERROR {0}", response.Content);
+                }
 
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
+            return RestUser;
         }
 
         public async Task DeleteUserAsync(long id)
@@ -86,7 +96,7 @@ namespace TTP.Data
 
         public async Task ModifyUserAsync(User user)
         {
-            var uri = new Uri(string.Format(Constants.GoodsUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.UserUrl, string.Empty));
 
             try
             {

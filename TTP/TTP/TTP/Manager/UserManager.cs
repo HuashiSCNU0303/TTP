@@ -24,7 +24,7 @@ namespace TTP.Data
 			return restService.GetUserByNameAsync(userName);
 		}
 
-		public Task AddUserTaskAsync(User user)
+		public Task<User> AddUserTaskAsync(User user)
 		{
 			return restService.AddUserAsync(user);
 		}

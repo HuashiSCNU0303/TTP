@@ -42,11 +42,10 @@ namespace TTP.View
             User user = BindingContext as User;
             user.TomatoPoints = 0;
             user.Imgurl = null;
-            Random ran = new Random();
-            user.UserId = ran.Next(0, 9999);
-            await App.UserManager.AddUserTaskAsync(user);
-            App.StaticUser = user;
+            User user2= await App.UserManager.AddUserTaskAsync(user);
+            App.StaticUser = user2;
             await DisplayAlert("成功", "注册成功！", "OK");
+            await Navigation.PopAsync();
         }
     }
 }

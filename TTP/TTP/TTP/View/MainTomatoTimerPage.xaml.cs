@@ -54,7 +54,7 @@ namespace TTP.View
             {
                 BeginTime= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 EndTime= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                UserId=16
+                UserId=121
             };
             App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
         }
@@ -62,7 +62,7 @@ namespace TTP.View
         public async void GetExampleAsync(long UserId)
         {
             //UserId=16
-            List<TomatoTime> allTime = await App.TomatoTimeManager.GetAllTomatoTimeTasksAsync(16);
+            List<TomatoTime> allTime = await App.TomatoTimeManager.GetAllTomatoTimeTasksAsync(121);
         }
     }
 }
