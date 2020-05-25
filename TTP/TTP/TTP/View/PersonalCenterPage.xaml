@@ -9,8 +9,7 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
              mc:Ignorable="d"
              x:Class="TTP.View.PersonalCenterPage"
              Shell.NavBarIsVisible="True"
-             BackgroundColor="#F5F5F5"
-             Title="User">
+             BackgroundColor="#F5F5F5">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="头像更换"                  
                      Order="Secondary"

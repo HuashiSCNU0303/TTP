@@ -7,8 +7,7 @@
              xmlns:sfAvatarView="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="TTP.View.ShoppingMallPage"
-             Shell.NavBarIsVisible="True"
-             Title="Shop">
+             Shell.NavBarIsVisible="True">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="add"
                      IconImageSource="add"

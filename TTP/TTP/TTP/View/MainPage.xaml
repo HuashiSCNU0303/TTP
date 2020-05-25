@@ -24,17 +24,17 @@
         </ResourceDictionary>
     </Shell.Resources>
     <TabBar>
-        <Tab Title="Timer" Icon="timer1.png">
+        <Tab Title="番茄钟" Icon="timer1.png">
             <ShellContent>
                 <tab:MainTomatoTimerPage />
             </ShellContent>
         </Tab>
-        <Tab Title="Shop" Icon="shop1.png">
+        <Tab Title="商城" Icon="shop1.png">
             <ShellContent>
                 <tab:ShoppingMallPage/>
             </ShellContent>
         </Tab>
-        <Tab Title="User" Icon="person1.png">
+        <Tab Title="个人中心" Icon="person1.png">
             <ShellContent>
                 <tab:PersonalCenterPage/>
             </ShellContent>

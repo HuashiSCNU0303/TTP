@@ -6,10 +6,39 @@
              mc:Ignorable="d"
              x:Class="TTP.View.HelpPage">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
-            <Label Text="Welcome to HelpPage!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="       该软件是通过使用番茄钟获取番茄，使用番茄在商城界面获取物品。如果在番茄钟使用期间切换到其他应用，本次番茄钟将失效，
+                   您不会获得番茄。当然您也可以自己上传物品以供其他用户购买。"/>
+            <Label Text="   在番茄钟界面您可以点击"></Label>
+            <Image Source="addTomatoButton.png"></Image>
+            <Label Text="   来进入添加番茄钟界面"></Label>
+            <Image Source="addTomatoPage.png"></Image>
+            <Label Text="   设置好相关属性后即可添加番茄钟"></Label>
+            <Label Text="     "></Label>
+            <Label Text="   在商城界面您可以点击"></Label>
+            <Image Source="addGoodButton.png"></Image>
+            <Label Text="   来进入添加番茄钟界面"></Label>
+            <Image Source="addGoodPage.png"></Image>
+            <Label Text="   设置好商品名、商品价格等之后即可发布商品"></Label>
+            <Label Text="     "></Label>
+            <Label Text="     在个人中心界面您可以点击"></Label>
+            <Image Source="dataAnalyse.png"></Image>
+            <Label Text="   来进入数据分析界面来查看自己近期番茄钟的使用情况"></Label>
+            <Label Text="     "></Label>
+            <Label Text="   点击"></Label>
+            <Image Source="whiteAppList.png"></Image>
+            <Label Text="   来进入白名单应用界面来查看和增加白名单应用。"></Label>
+            <Label Text="   白名单应用即您在使用番茄钟时可以切换的应用，使用番茄钟期间切换其他应用不会让您本次番茄钟失效"></Label>
+            <Label Text="     "></Label>
+            <Label Text="   点击"></Label>
+            <Image Source="tomatoRank.png"></Image>
+            <Label Text="   查看所有用户的番茄钟使用情况，和自己的排名。"></Label>
+            <Label Text="     "></Label>
+            <Label Text="   点击"></Label>
+            <Image Source="help.png"></Image>
+            <Label Text="   来查看此帮助。"></Label>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
