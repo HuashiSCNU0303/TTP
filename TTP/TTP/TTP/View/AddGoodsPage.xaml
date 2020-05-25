@@ -24,7 +24,7 @@
                     Clicked="SfButton_Clicked"
                     Aspect="AspectFit"/>
                 <inputLayout:SfTextInputLayout
-                   Hint="Enter name of item"
+                   Hint="物品名"
                  TrailingViewPosition="Inside">
                     <Entry Text="{Binding GoodsModel.Name}"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
@@ -36,7 +36,7 @@
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             <inputLayout:SfTextInputLayout
-                   Hint="Enter price"
+                   Hint="价格"
                 TrailingViewPosition="Inside">
                     <Entry Text="{Binding GoodsModel.Price}"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
@@ -49,7 +49,7 @@
                 </inputLayout:SfTextInputLayout>
             
             <inputLayout:SfTextInputLayout
-                   Hint="Enter your Description"
+                   Hint="物品描述"
                     TrailingViewPosition="Inside">
                 <Entry Text="{Binding GoodsModel.Description}"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
