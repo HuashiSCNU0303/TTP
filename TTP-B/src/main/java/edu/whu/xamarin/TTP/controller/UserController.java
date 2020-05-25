@@ -2,6 +2,8 @@ package edu.whu.xamarin.TTP.controller;
 
 import edu.whu.xamarin.TTP.model.AjaxResponse;
 import edu.whu.xamarin.TTP.model.User;
+import edu.whu.xamarin.TTP.model.UserPackage;
+import edu.whu.xamarin.TTP.service.UserPackageRestService;
 import edu.whu.xamarin.TTP.service.UserRestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/rest")
 public class UserController {
+    @Resource(name="userPackageRestJPAServiceImpl")
+    UserPackageRestService userPackageService;
 
     @Resource(name="userRestJPAServiceImpl")
     UserRestService userRestService;
@@ -21,9 +25,9 @@ public class UserController {
     @PostMapping("/user")
     public @ResponseBody
     User saveUser(@RequestBody User user) {
-        userRestService.saveUser(user);
-
-        return  user;
+        User user1= userRestService.saveUser(user);
+        userPackageService.saveUserPackage(new UserPackage().builder().userId(user1.getUserId()).userPackage("com.companyname.ttp").build());
+        return  user1;
     }
 
     @DeleteMapping("/user/{id}")

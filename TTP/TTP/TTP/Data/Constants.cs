@@ -6,8 +6,8 @@ namespace TTP
 {
     public static class Constants
     {
-        public static string BaseUrl = "http://47.97.196.50:8886";
-        public static string WsUrl = "ws://47.97.196.50:8886/test-one/{0}";
+        public static string BaseUrl = "http://47.97.196.50:8885";
+        public static string WsUrl = "ws://47.97.196.50:8885/test-one/{0}";
         public static string GoodsUrl = BaseUrl+"/rest/goods-data/{0}";
         public static string PicUrl = BaseUrl + "/rest/api";
         public static string UserUrl = BaseUrl + "/rest/user/{0}";

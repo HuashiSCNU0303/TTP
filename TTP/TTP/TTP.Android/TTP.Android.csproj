@@ -71,10 +71,10 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ListenAppService.cs" />
+    <Compile Include="Services\ListenAppService.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="OpenAppService.cs" />
-    <Compile Include="ReceiveMsgReceiver.cs" />
+    <Compile Include="Services\OpenAppService.cs" />
+    <Compile Include="BroadcastReceiver\ReceiveMsgReceiver.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PhotoPickerService.cs" />
@@ -142,7 +142,6 @@
     <AndroidResource Include="Resources\drawable\rightArrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="night.jpeg" />
     <AndroidResource Include="Resources\drawable\night.jpeg" />
     <AndroidResource Include="Resources\drawable\apps.png" />
     <AndroidResource Include="Resources\drawable\rank.png" />
