@@ -18,22 +18,32 @@ xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Butto
                      Priority="0"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <AbsoluteLayout>
-            <border:SfBorder   BorderColor="SkyBlue" BorderWidth="2" CornerRadius="20"  HasShadow="True" Margin="5" AbsoluteLayout.LayoutBounds="0,0,1,.3" AbsoluteLayout.LayoutFlags="All">
-                <Image Source="weather.jpg"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="7*" />
+            </Grid.RowDefinitions>
+            <AbsoluteLayout Grid.Row="0">
+                <border:SfBorder   BorderColor="SkyBlue" BorderWidth="2" CornerRadius="20"  HasShadow="True" Margin="5" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                    <Image Source="weather.jpg"
                    Aspect="AspectFill" ></Image>
-            </border:SfBorder>
-            <Image Source="sun.png" AbsoluteLayout.LayoutBounds=".05,.05,.25,.15" AbsoluteLayout.LayoutFlags="All"></Image>
-            <Image Source="timer.png"  Margin="3,0,0,0"
-                   AbsoluteLayout.LayoutBounds=".03,.2,.05,.05" AbsoluteLayout.LayoutFlags="All" ></Image>
-            <Image Source="tomato.png"  Margin="3,0,0,0"
-                   AbsoluteLayout.LayoutBounds=".03,.24,.05,.05" AbsoluteLayout.LayoutFlags="All"></Image>
-            <Label x:Name="labelTime"  AbsoluteLayout.LayoutBounds=".5,.08,.3,.12" AbsoluteLayout.LayoutFlags="All" LineBreakMode="WordWrap" 
+                </border:SfBorder>
+                <Image Source="sun.png" AbsoluteLayout.LayoutBounds=".05,.17,.25,.5" AbsoluteLayout.LayoutFlags="All"></Image>
+                <Image Source="timer.png"  Margin="3,0,0,0"
+                   AbsoluteLayout.LayoutBounds=".03,.67,.05,.17" AbsoluteLayout.LayoutFlags="All" ></Image>
+                <Image Source="tomato.png"  Margin="3,0,0,0"
+                   AbsoluteLayout.LayoutBounds=".03,.8,.05,.17" AbsoluteLayout.LayoutFlags="All"></Image>
+                <Label x:Name="labelTime"  AbsoluteLayout.LayoutBounds=".5,.3,.3,.4" AbsoluteLayout.LayoutFlags="All" LineBreakMode="WordWrap" 
                    FontAttributes="Bold" TextColor="#6495ED" FontSize="20" />
-            <Label Text="13小时20分钟" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".1,.21,.3,.05" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
-            <Label Text="200" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".1,.25,.3,.05" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
-            <Button BackgroundColor="#2A52BE" FontSize="30" Text="+" TextColor="White" AbsoluteLayout.LayoutBounds="1,.9,60,60" Clicked="SfButton_Clicked"
-                    AbsoluteLayout.LayoutFlags="PositionProportional" BorderRadius="30" />
-        </AbsoluteLayout>
+                <Label Text="13小时20分钟" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".12,.73,.3,.17" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
+                <Label Text="200" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".12,.86,.3,.17" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
+                
+            </AbsoluteLayout>
+            <ListView Grid.Row="1">
+                
+            </ListView>
+            <Button Grid.Row="1" HeightRequest="60" WidthRequest="60" BackgroundColor="#2A52BE" FontSize="30" Text="+" TextColor="White" HorizontalOptions="End" VerticalOptions="End" Margin="10" Clicked="SfButton_Clicked" BorderRadius="30" />
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>
