@@ -20,14 +20,24 @@ namespace TTP
         private static bool isClockPageOn = false;
         public static bool IsClockPageOn
         {
-            get
-            {
-                return isClockPageOn;
-            }
+            get { return isClockPageOn; }
             set
             {
                 isClockPageOn = value;
                 ClockPageChanged(value);
+            }
+        }
+
+        // 登录后在番茄钟页面加载用户近期的使用记录
+        public static event Action<long> LogInStatusChanged;
+        private static bool isLogIn = false;
+        public static bool IsLogIn
+        {
+            get { return isLogIn; }
+            set
+            {
+                isLogIn = value;
+                LogInStatusChanged(StaticUser.UserId);
             }
         }
 
@@ -42,7 +52,7 @@ namespace TTP
             StaticUser = new User();
             //判断以前是否登陆过
             JudgeloginstatusAsync();
-            InitWhiteList();
+            // InitWhiteList();
             MainPage = new MainPage();
         }
 

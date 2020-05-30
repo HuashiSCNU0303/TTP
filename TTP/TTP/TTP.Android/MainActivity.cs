@@ -11,6 +11,7 @@ using Android.Content;
 using System.IO;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
+using TTP.Droid.Services;
 
 namespace TTP.Droid
 {
@@ -38,6 +39,7 @@ namespace TTP.Droid
 
             App.ClockPageChanged += SetService;
             Xamarin.Forms.DependencyService.Register<OpenAppService>();
+            Xamarin.Forms.DependencyService.Register<ToastService>();
             restartMsgReceiver = new RestartMsgReceiver();
             RegisterReceiver(restartMsgReceiver, new IntentFilter("com.companyname.ttp.ListenAppService"));
 
@@ -101,10 +103,7 @@ namespace TTP.Droid
                 int mode = (int)appOps.CheckOpNoThrow("android:get_usage_stats", Process.MyUid(), PackageName);
                 if (mode == (int)AppOpsManagerMode.Allowed)
                 {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    AlertDialog alertDialog = builder.SetMessage("权限已获取")
-                                                     .SetCancelable(true).Create();
-                    alertDialog.Show();
+                    Toast.MakeText(Android.App.Application.Context, "权限已获取，可以正常使用了！", ToastLength.Long).Show();
                 }
                 else
                 {

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TTP.Model;
 using TTP.Services;
+using TTP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,6 +18,29 @@ namespace TTP.View
         public MainTomatoTimerPage()
         {
             InitializeComponent();
+            lsvRecentRecords.BindingContext = new TomatoTimeViewModel();
+            App.LogInStatusChanged += (userId) => 
+            {
+                TomatoTimeViewModel.refreshRecords(userId);
+                if (lblRecordHint.IsVisible)
+                {
+                    if (TomatoTimeViewModel.recordCount() > 0)
+                    {
+                        lblRecordHint.IsVisible = false;
+                    }
+                    else
+                    {
+                        lblRecordHint.Text = "最近没有使用记录哦！快开始锁机学习吧！";
+                    }
+                }
+            };
+            TomatoTimeViewModel.RecordCountChanged += () =>
+            {
+                if (lblRecordHint.IsVisible)
+                {
+                    lblRecordHint.IsVisible = false;
+                }
+            };
             showTime();
         }
 

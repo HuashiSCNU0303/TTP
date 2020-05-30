@@ -24,5 +24,8 @@ namespace TTP.Model
 
         [JsonProperty(PropertyName = "description")]
         public String Description { get; set; }
+
+        public string BeginTimeDate { get; set; }
+        public string SpanString { get; set; }
     }
 }

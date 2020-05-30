@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
 xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
 xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -39,10 +40,27 @@ xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Butto
                 <Label Text="200" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".12,.86,.3,.17" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
                 
             </AbsoluteLayout>
-            <ListView Grid.Row="1">
-                
-            </ListView>
+            <syncfusion:SfListView x:Name="lsvRecentRecords" ItemsSource="{Binding TimeRecords}" Grid.Row="1" Margin="10" IsStickyHeader="true" ItemSize="100">
+                <syncfusion:SfListView.HeaderTemplate>
+                    <DataTemplate>
+                        <Label Text="近期使用记录" FontSize="20" FontAttributes="Bold" TextColor="#2A52BE"/>
+                    </DataTemplate>
+                </syncfusion:SfListView.HeaderTemplate>
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.4*" />
+                                <RowDefinition Height="0.6*" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding SpanString}" FontAttributes="Bold" TextColor="Teal" FontSize="21" />
+                            <Label Grid.Row="1" Text="{Binding Description}" TextColor="Teal" FontSize="15"/>
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
             <Button Grid.Row="1" HeightRequest="60" WidthRequest="60" BackgroundColor="#2A52BE" FontSize="30" Text="+" TextColor="White" HorizontalOptions="End" VerticalOptions="End" Margin="10" Clicked="SfButton_Clicked" BorderRadius="30" />
+            <Label x:Name="lblRecordHint" Grid.Row="1" FontSize="20" Text="登录查看最近使用记录..." HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
         
     </ContentPage.Content>

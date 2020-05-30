@@ -22,7 +22,6 @@ namespace TTP.View
         {
             InitializeComponent();
             BindingContext = new PersonalCenterViewModel();
-            Console.WriteLine("初始化个人信息！");
             initPersonalCenterSetting();
             this.Appearing += (sender, args) => { getBinding(); };
         }

@@ -35,8 +35,8 @@ namespace TTP.View
                     whiteAppsString += item.PackageName + ";";
                 }
             }
+            DependencyService.Get<IToastService>().LongAlert("设置成功");
             await App.AppManager.ModifyAppsAsync(App.StaticUser.UserId, whiteAppsString);
-            await DisplayAlert("设置完成", whiteAppsString, "OK");
             await Navigation.PopModalAsync();
         }
 

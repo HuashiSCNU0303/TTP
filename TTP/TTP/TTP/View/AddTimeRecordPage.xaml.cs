@@ -22,8 +22,6 @@ namespace TTP.View
     public partial class AddTimeRecordPage : PopupPage
     {
         public event Action<int, int, string> SetTimeEvent;
-        int hours_int = 0, minutes_int = 0;
-        string description;
 
         public static readonly BindableProperty HoursProperty = BindableProperty.Create("Hours", typeof(int), typeof(AddTimeRecordPage), 0);
         public static readonly BindableProperty MinutesProperty = BindableProperty.Create("Minutes", typeof(int), typeof(AddTimeRecordPage), 0);
@@ -65,6 +63,7 @@ namespace TTP.View
         {
             if (Hours != 0 || Minutes != 0)
             {
+                DependencyService.Get<IToastService>().ShortAlert("开始锁机啦！");
                 SetTimeEvent(Hours, Minutes, Description);
             }
             base.OnDisappearing();
@@ -84,7 +83,6 @@ namespace TTP.View
             }
             
             await PopupNavigation.Instance.PopAsync();
-
         }
     }
 

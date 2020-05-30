@@ -29,11 +29,12 @@ namespace TTP.View
             {
                 await DisplayAlert("成功", "登陆成功！", "OK");
                 App.StaticUser = user2;
+                App.IsLogIn = true;
                 await Navigation.PopAsync();
             }
             else 
             {
-                await DisplayAlert("错位", "密码错误！", "OK");
+                await DisplayAlert("错误", "密码错误！", "OK");
             }
         }
 

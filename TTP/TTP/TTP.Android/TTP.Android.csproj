@@ -73,11 +73,12 @@
   <ItemGroup>
     <Compile Include="Services\ListenAppService.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Services\OpenAppService.cs" />
+    <Compile Include="SystemService\OpenAppService.cs" />
     <Compile Include="BroadcastReceiver\ReceiveMsgReceiver.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PhotoPickerService.cs" />
+    <Compile Include="SystemService\PhotoPickerService.cs" />
+    <Compile Include="SystemService\ToastService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
