@@ -19,9 +19,9 @@ namespace TTP.View
         {
             InitializeComponent();
             lsvRecentRecords.BindingContext = new TomatoTimeViewModel();
-            App.LogInStatusChanged += (userId) => 
+            App.LogInStatusChanged += async (userId) => 
             {
-                TomatoTimeViewModel.refreshRecords(userId);
+                bool isSuccess = await TomatoTimeViewModel.refreshRecords(userId);
                 if (lblRecordHint.IsVisible)
                 {
                     if (TomatoTimeViewModel.recordCount() > 0)

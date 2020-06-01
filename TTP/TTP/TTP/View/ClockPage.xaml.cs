@@ -35,6 +35,11 @@ namespace TTP.View
                 {
                     Finish();
                 }
+                if (!App.IsClockPageOn)
+                {
+                    return false;
+                }
+                Console.WriteLine(DateTime.Now.ToString());
                 return true;
             });
         }
@@ -91,13 +96,16 @@ namespace TTP.View
                 UserId = App.StaticUser.UserId,
                 Description = description,
                 BeginTimeDate = startTime.Date.ToShortTimeString(),
-                SpanString = startTime.ToShortTimeString() + "→" + currentTime.ToShortTimeString()
+                SpanString = startTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
             };
             TomatoTimeViewModel.addRecord(time);
             int p = (DateTime.Now.Subtract(startTime).Minutes + 1) / 15+1;
-            await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
-            App.StaticUser.TomatoPoints += p;
-            await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
+            if (App.IsLogIn)
+            {
+                await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
+                App.StaticUser.TomatoPoints += p;
+                await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
+            }
             // TODO: 加一个铃声提醒
             await PopupNavigation.Instance.PopAsync();
         }

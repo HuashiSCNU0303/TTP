@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using TTP.Model;
 
 namespace TTP.ViewModel
@@ -22,17 +23,17 @@ namespace TTP.ViewModel
             set { timeRecords = value; RaisePropertyChanged(); }
         }
 
-        public static async void refreshRecords(long userId)
+        public static async Task<bool> refreshRecords(long userId)
         {
             List<TomatoTime> records = await App.TomatoTimeManager.GetAllTomatoTimeTasksAsync(userId);
             timeRecords.Clear();
             records.ForEach(g =>
             {
-                // 不确定这段代码是否能成功，能联网了再试试
                 g.BeginTimeDate = Convert.ToDateTime(g.BeginTime).Date.ToShortDateString();
                 g.SpanString = Convert.ToDateTime(g.BeginTime).ToShortTimeString() + " → " + Convert.ToDateTime(g.EndTime).ToShortTimeString();
                 timeRecords.Add(g);
             });
+            return true;
         }
 
         public static void addRecord(TomatoTime timeRecord)
