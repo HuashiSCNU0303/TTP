@@ -18,7 +18,12 @@ namespace TTP.View
         public MainTomatoTimerPage()
         {
             InitializeComponent();
+            BindingContext = new PersonalCenterViewModel();
             lsvRecentRecords.BindingContext = new TomatoTimeViewModel();
+            lsvRecentRecords.DataSource.GroupDescriptors.Add(new Syncfusion.DataSource.GroupDescriptor()
+            {
+                PropertyName = "BeginTimeDate",
+            });
             App.LogInStatusChanged += async (userId) => 
             {
                 bool isSuccess = await TomatoTimeViewModel.refreshRecords(userId);
@@ -33,6 +38,8 @@ namespace TTP.View
                         lblRecordHint.Text = "最近没有使用记录哦！快开始锁机学习吧！";
                     }
                 }
+                lblTomatoTimeLength.Text = App.StaticUser.TotalTimes.ToString();
+                lblTomatoPoints.Text = App.StaticUser.TomatoPoints.ToString();
             };
             TomatoTimeViewModel.RecordCountChanged += () =>
             {
@@ -40,11 +47,13 @@ namespace TTP.View
                 {
                     lblRecordHint.IsVisible = false;
                 }
+                lblTomatoTimeLength.Text = App.StaticUser.TotalTimes.ToString();
+                lblTomatoPoints.Text = App.StaticUser.TomatoPoints.ToString();
             };
-            showTime();
+            ShowTime();
         }
 
-        public void showTime()
+        public void ShowTime()
         {
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                 Device.BeginInvokeOnMainThread(() => labelTime.Text = DateTime.Now.ToString());

@@ -22,7 +22,7 @@ namespace TTP.ViewModel
         }
         public PersonalCenterViewModel()
         {
-            currentUser =new User();
+            currentUser = new User();
             getUser();
         }
 

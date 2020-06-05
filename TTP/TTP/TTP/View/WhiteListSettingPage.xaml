@@ -10,11 +10,12 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="50" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="60" />
             </Grid.RowDefinitions>
-
-            <xforms:SfListView x:Name="appListView" Grid.Row="0" Padding="10" ItemSize="80">
+            <Label Grid.Row="0" Text="白名单应用设置" VerticalTextAlignment="Center" Padding="10, 0, 0, 0" FontSize="16" FontAttributes="Bold" TextColor="White" BackgroundColor="#6495ED" />
+            <xforms:SfListView x:Name="appListView" Grid.Row="1" Padding="10, 0, 10, 10" ItemSize="80">
                 <xforms:SfListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -32,7 +33,7 @@
                     </DataTemplate>
                 </xforms:SfListView.ItemTemplate>
             </xforms:SfListView>
-            <Button x:Name="btnSet" Grid.Row="1" Text="设置" Clicked="btnSet_Clicked" />
+            <Button x:Name="btnSet" Margin="100, 10, 100, 10" BackgroundColor="#3897f0" TextColor="White" CornerRadius="10" Grid.Row="2" Text="设置" Clicked="btnSet_Clicked" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

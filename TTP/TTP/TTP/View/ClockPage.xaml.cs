@@ -95,7 +95,7 @@ namespace TTP.View
                 EndTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
                 UserId = App.StaticUser.UserId,
                 Description = description,
-                BeginTimeDate = startTime.Date.ToShortTimeString(),
+                BeginTimeDate = startTime.Date.ToLongDateString(),
                 SpanString = startTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
             };
             TomatoTimeViewModel.addRecord(time);

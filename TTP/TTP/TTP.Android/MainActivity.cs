@@ -68,7 +68,6 @@ namespace TTP.Droid
                                                  .SetCancelable(false).Create();
                 alertDialog.Show();
             }
-
         }
         public static readonly int PickImageId = 1000;
         public TaskCompletionSource<Stream> PickImageTaskCompletionSource { set; get; }

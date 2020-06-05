@@ -21,5 +21,8 @@ namespace TTP.Model
 
         [JsonProperty(PropertyName = "imgurl")]
         public string Imgurl { get; set; }
+
+        public TimeSpan TotalTimes { get; set; }
+
     }
 }

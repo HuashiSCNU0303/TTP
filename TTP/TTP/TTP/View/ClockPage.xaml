@@ -22,27 +22,32 @@
                                    ScaleOut="0.8" />
     </pages:PopupPage.Animation>
 
-    <Grid BackgroundColor="White" VerticalOptions="Center" HeightRequest="800" Margin="30">
+    <Grid BackgroundColor="White" VerticalOptions="Center" Margin="30">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="300" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Margin="20" FontSize="Title" HorizontalOptions="Center" Text="倒计时"/>
-        <Button Grid.Row="1" Margin="20" Text="退出" x:Name="btnQuit" Clicked="btnQuit_Clicked"/>
-        <Button Grid.Row="2" Margin="20" Text="白名单应用" x:Name="btnLaunch" Clicked="btnLaunch_Clicked" />
-        <gauge:SfCircularGauge Grid.Row="3" Margin="20" x:Name="clock">
+        <gauge:SfCircularGauge Grid.Row="1" Margin="20" x:Name="clock">
             <gauge:SfCircularGauge.Headers>
                 <gauge:Header x:Name="header" Text="" Position="0.5, 0.5" ForegroundColor="#0682F6" FontAttributes="Bold" TextSize="20"/>
             </gauge:SfCircularGauge.Headers>
             <gauge:SfCircularGauge.Scales>
                 <gauge:Scale StartAngle="270" SweepAngle="360" StartValue="0" EndValue="360" Interval="30" MinorTicksPerInterval="0" ShowLabels="False" ShowTicks="False" ShowRim="False">
                     <gauge:Scale.Ranges>
-                        <gauge:Range x:Name="range" StartValue = "0" EndValue = "360"  Thickness = "20" />
+                        <gauge:Range x:Name="range" StartValue="0" EndValue="360"  Thickness="20" />
                     </gauge:Scale.Ranges>
                 </gauge:Scale>
             </gauge:SfCircularGauge.Scales>
         </gauge:SfCircularGauge>
+        <Grid Grid.Row="2" Margin="0, 0, 0, 30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" HorizontalOptions="Center" BackgroundColor="#3897f0" CornerRadius="10" TextColor="White" Text="退出" x:Name="btnQuit" Clicked="btnQuit_Clicked"/>
+            <Button Grid.Column="1" HorizontalOptions="Center" BackgroundColor="#3897f0" CornerRadius="10" TextColor="White" Text="白名单应用" x:Name="btnLaunch" Clicked="btnLaunch_Clicked" />
+        </Grid>
     </Grid>
 </pages:PopupPage>

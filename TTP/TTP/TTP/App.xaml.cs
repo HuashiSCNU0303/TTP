@@ -50,6 +50,7 @@ namespace TTP
             TomatoTimeManager = new TomatoTimeManager(new TomatoTimeService());
             AppManager = new AppManager(new AppRestService());
             StaticUser = new User();
+            StaticUser.TotalTimes = new TimeSpan();
             //判断以前是否登陆过
             JudgeloginstatusAsync();
             // InitWhiteList();

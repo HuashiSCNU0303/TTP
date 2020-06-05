@@ -31,6 +31,7 @@ namespace TTP.ViewModel
             {
                 g.BeginTimeDate = Convert.ToDateTime(g.BeginTime).Date.ToShortDateString();
                 g.SpanString = Convert.ToDateTime(g.BeginTime).ToShortTimeString() + " → " + Convert.ToDateTime(g.EndTime).ToShortTimeString();
+                App.StaticUser.TotalTimes += Convert.ToDateTime(g.EndTime) - Convert.ToDateTime(g.BeginTime);
                 timeRecords.Add(g);
             });
             return true;
@@ -39,6 +40,7 @@ namespace TTP.ViewModel
         public static void addRecord(TomatoTime timeRecord)
         {
             timeRecords.Add(timeRecord);
+            App.StaticUser.TotalTimes += Convert.ToDateTime(timeRecord.EndTime) - Convert.ToDateTime(timeRecord.BeginTime);
             RecordCountChanged();
         }
 

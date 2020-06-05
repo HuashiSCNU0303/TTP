@@ -29,6 +29,7 @@ namespace TTP.View
             {
                 await DisplayAlert("成功", "登陆成功！", "OK");
                 App.StaticUser = user2;
+                App.StaticUser.TotalTimes = new TimeSpan();
                 App.IsLogIn = true;
                 await Navigation.PopAsync();
             }

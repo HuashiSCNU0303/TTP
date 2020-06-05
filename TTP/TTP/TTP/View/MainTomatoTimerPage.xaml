@@ -12,12 +12,6 @@ xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Butto
              BackgroundColor="#F5F5F5"
              Shell.NavBarIsVisible="True">
     
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="add"
-                     IconImageSource="add"
-                     Order="Primary"
-                     Priority="0"/>
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -36,16 +30,32 @@ xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Butto
                    AbsoluteLayout.LayoutBounds=".03,.8,.05,.17" AbsoluteLayout.LayoutFlags="All"></Image>
                 <Label x:Name="labelTime"  AbsoluteLayout.LayoutBounds=".5,.3,.3,.4" AbsoluteLayout.LayoutFlags="All" LineBreakMode="WordWrap" 
                    FontAttributes="Bold" TextColor="#6495ED" FontSize="20" />
-                <Label Text="13小时20分钟" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".12,.73,.3,.17" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
-                <Label Text="200" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".12,.86,.3,.17" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
+                <Label x:Name="lblTomatoTimeLength"  Text="{Binding CurrentUser.TotalTimes}" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".12,.73,.3,.17" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
+                <Label x:Name="lblTomatoPoints" Text="{Binding CurrentUser.TomatoPoints}" Margin="3,0,0,0" AbsoluteLayout.LayoutBounds=".12,.86,.3,.17" AbsoluteLayout.LayoutFlags="All" FontSize="10" FontAttributes="Bold"/>
                 
             </AbsoluteLayout>
-            <syncfusion:SfListView x:Name="lsvRecentRecords" ItemsSource="{Binding TimeRecords}" Grid.Row="1" Margin="10" IsStickyHeader="true" ItemSize="100">
+            <syncfusion:SfListView x:Name="lsvRecentRecords" ItemsSource="{Binding TimeRecords}" Grid.Row="1" Margin="10" IsStickyHeader="true" ItemSize="90" >
                 <syncfusion:SfListView.HeaderTemplate>
                     <DataTemplate>
-                        <Label Text="近期使用记录" FontSize="20" FontAttributes="Bold" TextColor="#2A52BE"/>
+                        <Label Text="近期使用记录" FontSize="22" FontAttributes="Bold" TextColor="#2A52BE"/>
                     </DataTemplate>
                 </syncfusion:SfListView.HeaderTemplate>
+                <syncfusion:SfListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Label Text="{Binding Key}"
+                                           FontSize="18"
+                                           TextColor="#2A52BE"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.GroupHeaderTemplate>
                 <syncfusion:SfListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10">

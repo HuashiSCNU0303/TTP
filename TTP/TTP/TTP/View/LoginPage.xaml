@@ -10,7 +10,7 @@
              Shell.NavBarIsVisible="false"
              x:Class="TTP.View.LoginPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="Center" Margin="15">
             <inputLayout:SfTextInputLayout
                 Hint="账号" 
                 ContainerType="Outlined"

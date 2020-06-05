@@ -63,8 +63,8 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnAddRecord" Grid.Row="0" Grid.Column="0" Text="添加" BackgroundColor="#3897f0" TextColor="White" VerticalOptions="Start" Clicked="btnAddRecord_Clicked"/>
-            <Button x:Name="btnReturn"  Grid.Row="0" Grid.Column="1" Text="返回" BackgroundColor="#3897f0" TextColor="White" VerticalOptions="Start" Clicked="btnReturn_Clicked" />
+            <Button x:Name="btnAddRecord" Grid.Row="0" Grid.Column="0" Text="添加" BackgroundColor="#3897f0" TextColor="White" CornerRadius="10" VerticalOptions="Start" Clicked="btnAddRecord_Clicked"/>
+            <Button x:Name="btnReturn"  Grid.Row="0" Grid.Column="1" Text="返回" BackgroundColor="#3897f0" TextColor="White" CornerRadius="10" VerticalOptions="Start" Clicked="btnReturn_Clicked" />
         </Grid>
     </Grid>
 </pages:PopupPage>

@@ -14,8 +14,8 @@
              Shell.NavBarIsVisible="false">
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout x:Name="st">
-                <Label Text="这是增加商品页面"/>
+        <StackLayout x:Name="st" VerticalOptions="Center" Margin="30,10,30,10">
+                <Label Text="添加商品" HorizontalOptions="Center" TextColor="#2A52BE" FontSize="Large"/>
                 <ImageButton 
                     x:Name="image"
                     Source="imageNull.png"
