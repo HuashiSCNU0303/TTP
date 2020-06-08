@@ -35,7 +35,7 @@ namespace TTP.View
             {
                 DependencyService.Get<IToastService>().LongAlert("登陆成功！");
                 App.StaticUser = user2;
-                App.StaticUser.TotalTimes = new TimeSpan();
+                user2.TotalTimes = new TimeSpan();
                 App.IsLogIn = true;
                 await Navigation.PopAsync();
             }

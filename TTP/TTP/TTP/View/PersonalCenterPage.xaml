@@ -94,7 +94,7 @@ xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XF
                               FontSize="10"
                               Grid.Row="4"
                               Grid.Column="1" />
-                            <Label Text="120小时30分钟"
+                            <Label Text="{Binding CurrentUser.TotalTimes}"
                               TextColor="Black"
                               FontAttributes="Bold"
                               FontSize="10"

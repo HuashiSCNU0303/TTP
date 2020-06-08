@@ -18,7 +18,6 @@ namespace TTP.View
         public MainTomatoTimerPage()
         {
             InitializeComponent();
-            BindingContext = new PersonalCenterViewModel();
             lsvRecentRecords.BindingContext = new TomatoTimeViewModel();
             lsvRecentRecords.DataSource.GroupDescriptors.Add(new Syncfusion.DataSource.GroupDescriptor()
             {
