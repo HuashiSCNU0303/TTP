@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TTP.Model;
+using TTP.Services;
 using TTP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,7 +29,7 @@ namespace TTP.View
             {
                 await App.GoodsManager.DeleteGoodsTaskAsync(gdvm.GoodsModel);
                 GoodsViewModel.refresh();
-                await DisplayAlert("提示", "删除商品成功", "OK");
+                DependencyService.Get<IToastService>().LongAlert("删除商品成功！");
                 await Navigation.PopAsync();
             }
             else
@@ -37,12 +38,12 @@ namespace TTP.View
                 {
                     App.StaticUser.TomatoPoints -= gdvm.GoodsModel.Price;
                     await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
-                    await DisplayAlert("成功", "购买商品成功", "OK");
+                    DependencyService.Get<IToastService>().LongAlert("购买商品成功！");
                     await Navigation.PopAsync();
                 }
                 else 
                 {
-                    await DisplayAlert("失败", "剩余点数不足购买！", "OK");
+                    DependencyService.Get<IToastService>().LongAlert("番茄点不足，不能购买！");
                 }
             }
         }

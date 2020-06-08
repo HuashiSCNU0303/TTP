@@ -67,10 +67,15 @@ public class MyOneToOneServer {
      * @param message 消息对象
      */
     private void sendTo(Message message) {
-        Session s = clients.get(message.getReceiverId()).session;
+        Session s;
+        try{
+            s = clients.get(message.getReceiverId()).session;
+        }catch (Exception e){
+            return;
+        }
         if (s != null) {
             try {
-                s.getBasicRemote().sendText(message.getMessage());
+                s.getBasicRemote().sendText(message.getMessage()+"|"+message.getSenderId().toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }

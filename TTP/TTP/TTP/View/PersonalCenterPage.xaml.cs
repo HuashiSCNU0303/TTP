@@ -33,6 +33,7 @@ namespace TTP.View
             personalCenterSettings.Add(new PersonalCenterSetting { Name = "可运行软件", HeadImage = "apps.png", BehindImage = "rightArrow.png" });
             personalCenterSettings.Add(new PersonalCenterSetting { Name = "排行", HeadImage = "rank.png", BehindImage = "rightArrow.png" });
             personalCenterSettings.Add(new PersonalCenterSetting { Name = "帮助", HeadImage = "help1.png", BehindImage = "rightArrow.png" });
+            personalCenterSettings.Add(new PersonalCenterSetting { Name = "私信", HeadImage = "help1.png", BehindImage = "rightArrow.png" });
             settingList.ItemsSource = personalCenterSettings;
         }
 
@@ -57,6 +58,9 @@ namespace TTP.View
                     break;
                 case 3:
                     await Navigation.PushModalAsync(new HelpPage());
+                    break;
+                case 4:
+                    await Navigation.PushAsync(new ReceiveMsgPage());
                     break;
 
             }

@@ -39,7 +39,7 @@ namespace TTP.View
             agvm.GoodsModel.Id = RandKey;
             await App.GoodsManager.AddGoodsTaskAsync(agvm.GoodsModel);
             GoodsViewModel.refresh();
-            await DisplayAlert("提示", "增加成功！", "OK");
+            DependencyService.Get<IToastService>().LongAlert("增加商品成功！");
             await Navigation.PopAsync();
         }
 
