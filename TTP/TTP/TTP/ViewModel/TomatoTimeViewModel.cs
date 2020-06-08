@@ -27,6 +27,17 @@ namespace TTP.ViewModel
         {
             List<TomatoTime> records = await App.TomatoTimeManager.GetAllTomatoTimeTasksAsync(userId);
             timeRecords.Clear();
+            records.Sort((o1, o2) =>
+            {
+                if (Convert.ToDateTime(o1.BeginTime) > Convert.ToDateTime(o2.BeginTime))
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 1;
+                }
+            });
             records.ForEach(g =>
             {
                 g.BeginTimeDate = Convert.ToDateTime(g.BeginTime).Date.ToShortDateString();

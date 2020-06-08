@@ -65,14 +65,7 @@ namespace TTP.View
         {
             base.OnDisappearing();
             App.IsClockPageOn = false;
-            if (App.IsLogIn)
-            {
-                DependencyService.Get<IToastService>().LongAlert("锁机结束");
-            }
-            else
-            {
-                DependencyService.Get<IToastService>().LongAlert("锁机结束。由于你没有登录，此次锁机将不计算番茄点");
-            }
+            DependencyService.Get<IToastService>().LongAlert("锁机结束");
             HWBackButtonManager.Instance.RemoveHWBackButtonListener();
         }
 
@@ -95,17 +88,14 @@ namespace TTP.View
                 EndTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
                 UserId = App.StaticUser.UserId,
                 Description = description,
-                BeginTimeDate = startTime.Date.ToLongDateString(),
+                BeginTimeDate = startTime.Date.ToShortDateString(),
                 SpanString = startTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
             };
+            int p = (DateTime.Now.Subtract(startTime).Minutes + 1) / 15 + 1;
+            App.StaticUser.TomatoPoints += p;
             TomatoTimeViewModel.addRecord(time);
-            int p = (DateTime.Now.Subtract(startTime).Minutes + 1) / 15+1;
-            if (App.IsLogIn)
-            {
-                await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
-                App.StaticUser.TomatoPoints += p;
-                await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
-            }
+            await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
+            await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
             // TODO: 加一个铃声提醒
             await PopupNavigation.Instance.PopAsync();
         }
