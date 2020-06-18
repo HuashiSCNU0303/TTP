@@ -18,8 +18,9 @@ namespace TTP
     public partial class App : Application
     {
         private static ClientWebSocket client;
+        private static User staticUser;
         private static CancellationTokenSource cts;
-        private Thread thread;
+        private static Thread thread;
 
         public static Dictionary<long,string> Receive;
 
@@ -27,7 +28,24 @@ namespace TTP
         public static UserManager UserManager { get; private set; }
         public static TomatoTimeManager TomatoTimeManager { get; private set; }
         public static AppManager AppManager { get; private set; }
-        public static User StaticUser { get;  set; }
+        public static User StaticUser
+        {
+            get { return staticUser; }
+            set
+            {
+                if (value.UserId == 0)
+                {
+                    return;
+                }
+                staticUser = value;
+                try { thread.Start(); }
+                catch (Exception e)
+                {
+                    return;
+                }
+
+            }
+        }
         public static event Action<bool> ClockPageChanged;
 
         public static event Action<string> TextReceive;
@@ -65,7 +83,7 @@ namespace TTP
             UserManager = new UserManager(new UserRestService());
             TomatoTimeManager = new TomatoTimeManager(new TomatoTimeService());
             AppManager = new AppManager(new AppRestService());
-            StaticUser = new User();
+            staticUser = new User();
             StaticUser.TotalTimes = new TimeSpan();
 
             client = new ClientWebSocket();
@@ -75,7 +93,7 @@ namespace TTP
                 ConnectToServerAsync();
             });
 
-            thread.Start();
+            //thread.Start();
             //判断以前是否登陆过
             JudgeloginstatusAsync();
             // InitWhiteList();

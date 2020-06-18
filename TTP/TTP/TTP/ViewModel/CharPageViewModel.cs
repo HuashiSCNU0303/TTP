@@ -1,4 +1,5 @@
-﻿using Syncfusion.XForms.Chat;
+﻿using Syncfusion.DataSource.Extensions;
+using Syncfusion.XForms.Chat;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
@@ -27,8 +28,19 @@ namespace TTP.ViewModel
             messages = new ObservableCollection<object>();
             currentUser = a;
             sendToUser = b;
-            GenerateMessages();
         }
+
+        public CharPageViewModel(AUser a, AUser b,string[] msgs)
+        {
+            messages = new ObservableCollection<object>();
+            currentUser = a;
+            sendToUser = b;
+            msgs.ForEach(msg=>messages.Add(new TextMessage() {
+                Author = sendToUser,
+                Text = msg,
+            }));
+        }
+
 
         /// <summary>
         /// Gets or sets the collection of messages of a conversation.

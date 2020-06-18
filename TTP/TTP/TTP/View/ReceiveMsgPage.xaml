@@ -3,28 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sfAvatarView="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
+             xmlns:badge ="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms"
              mc:Ignorable="d"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="false"
              x:Class="TTP.View.ReceiveMsgPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listview"
-                ItemSelected="ListView_ItemSelected"
-                      Grid.RowSpan="4"
-                      SeparatorVisibility="None"
-                      ItemsSource="{Binding AUsers}"
-                      HasUnevenRows="True"
-                      IsPullToRefreshEnabled="True" 
-                      Refreshing="ListView_Refreshing">
-                <ListView.ItemTemplate>
+            <CollectionView ItemsSource="{Binding AUsers}" 
+                            SelectionMode="Single"
+                            SelectionChanged="OnCollectionViewSelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                        Span="3" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Label Text="{Binding Name}"/>
-                        </ViewCell>
+                        <StackLayout Padding="10">
+                            <badge:SfBadgeView HorizontalOptions="Center" BadgeText="{Binding Num}}"
+                               VerticalOptions="Center">
+                                <badge:SfBadgeView.Content>
+                                    <sfAvatarView:SfAvatarView 
+                                    x:Name="profilePicture" 
+                                    CornerRadius="25" 
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Center" 
+                                    ContentType="Custom" 
+                                    ImageSource="{Binding Avatar}" 
+                                    AvatarShape="Circle" 
+                                    AvatarSize="ExtraLarge"/>
+                                </badge:SfBadgeView.Content>
+                                <badge:SfBadgeView.BadgeSettings>
+                                    <badge:BadgeSetting BadgeType="Error" BadgeAnimation="Scale" Offset="-12,6" BadgePosition="TopRight" />
+                                </badge:SfBadgeView.BadgeSettings>
+                            </badge:SfBadgeView>
+                            <Label Text="{Binding Name}" HorizontalOptions="Center"></Label>
+                        </StackLayout>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

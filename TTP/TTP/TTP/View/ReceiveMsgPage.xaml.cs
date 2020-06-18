@@ -23,30 +23,31 @@ namespace TTP.View
             BindingContext = new ReceiveMsgViewModel();
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListView lv = sender as ListView;
-
-            var auser = lv.SelectedItem as CharPageViewModel.AUser;
-
-            if (auser == null) return;
-            lv.SelectedItem = null;
-
+            if (e.CurrentSelection.FirstOrDefault() == null) {
+                return;
+            }
+            ReceiveModel receiver = e.CurrentSelection.FirstOrDefault() as ReceiveModel;
+            CollectionView cv = sender as CollectionView;
+            cv.SelectedItem = null;
             CharPageViewModel.AUser CurrentUser = new CharPageViewModel.AUser()
             {
                 UserId = App.StaticUser.UserId,
                 Name = App.StaticUser.Name,
                 Avatar = App.StaticUser.Imgurl
             };
+            CharPageViewModel.AUser sdUser = new CharPageViewModel.AUser()
+            {
+                UserId = receiver.UserId,
+                Name = receiver.Name,
+                Avatar = receiver.Avatar
+            };
+            string[] msgs = App.Receive[sdUser.UserId].Split('|');
             Navigation.PushAsync(new ChatPage()
             {
-                BindingContext = new CharPageViewModel(CurrentUser, auser)
+                BindingContext = new CharPageViewModel(CurrentUser, sdUser,msgs)
             });
-        }
-
-        private void ListView_Refreshing(object sender, EventArgs e)
-        {
-
         }
     }
 }

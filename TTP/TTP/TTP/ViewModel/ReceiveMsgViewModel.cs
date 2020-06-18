@@ -10,15 +10,15 @@ namespace TTP.ViewModel
 {
     public class ReceiveMsgViewModel : ViewModelBase
     {
-        private static ObservableCollection<CharPageViewModel.AUser> aUsers;
+        private static ObservableCollection<ReceiveModel> aUsers;
 
-        public ObservableCollection<CharPageViewModel.AUser> AUsers
+        public ObservableCollection<ReceiveModel> AUsers
         {
             get { return aUsers; }
             set { aUsers = value; RaisePropertyChanged(); }
         }
         public ReceiveMsgViewModel() {
-            aUsers = new ObservableCollection<CharPageViewModel.AUser>();
+            aUsers = new ObservableCollection<ReceiveModel>();
             refresh();
         }
 
@@ -27,13 +27,21 @@ namespace TTP.ViewModel
             App.Receive.ForEach(async item =>
             {
                 User user = await App.UserManager.GetUserTasksAsync(item.Key);
-                aUsers.Add(new CharPageViewModel.AUser()
+                aUsers.Add(new ReceiveModel()
                 {
                     UserId = item.Key,
                     Avatar = user.Imgurl,
-                    Name = user.Name
+                    Name = user.Name,
+                    Num=App.Receive[item.Key].Split('|').Length
                 });
             });
         }
+    }
+    public class ReceiveModel 
+    {
+        public long UserId { get; set; }
+        public string Avatar { get; set; }
+        public string Name { get; set; }
+        public int Num { get; set; }
     }
 }
