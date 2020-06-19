@@ -92,8 +92,12 @@ namespace TTP.View
                 SpanString = startTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
             };
             int p = (DateTime.Now.Subtract(startTime).Minutes + 1) / 15 + 1;
+
             App.StaticUser.TomatoPoints += p;
-            TomatoTimeViewModel.addRecord(time);
+            App.StaticUser.TotalTimes += Convert.ToDateTime(time.EndTime) - Convert.ToDateTime(time.BeginTime);
+            App.TomatoTimeManager.AddTimeRecord(time);
+            TomatoTaskViewModel.RefreshUserTasks();
+
             await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
             await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
             // TODO: 加一个铃声提醒

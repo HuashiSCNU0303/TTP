@@ -47,12 +47,15 @@
 
         </Grid>
 
-        <Entry Grid.Row="2"
-               x:Name="entryDescription"
-               Margin="20,0,20,0" 
-               Placeholder="条目描述" 
-               PlaceholderColor="#bababa" 
-               FontSize="16" />
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" HorizontalOptions="End" Text="任务：" FontSize="16" />
+            <Label Grid.Column="1" x:Name="lblDescription" HorizontalOptions="Start" Text="{Binding Description}" FontSize="16" />
+        </Grid>
+        
 
         <Grid Grid.Row="3" Margin="20">
             <Grid.RowDefinitions>

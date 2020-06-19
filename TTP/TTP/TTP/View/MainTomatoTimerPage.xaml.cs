@@ -1,4 +1,5 @@
 ﻿using Rg.Plugins.Popup.Services;
+using Syncfusion.XForms.Buttons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,29 +19,30 @@ namespace TTP.View
         public MainTomatoTimerPage()
         {
             InitializeComponent();
-            lsvRecentRecords.BindingContext = new TomatoTimeViewModel();
-            lsvRecentRecords.DataSource.GroupDescriptors.Add(new Syncfusion.DataSource.GroupDescriptor()
+            lsvRecentRecords.BindingContext = new TomatoTaskViewModel();
+            /*lsvRecentRecords.DataSource.GroupDescriptors.Add(new Syncfusion.DataSource.GroupDescriptor()
             {
                 PropertyName = "BeginTimeDate",
-            });
+            });*/
             App.LogInStatusChanged += async (userId) => 
             {
-                bool isSuccess = await TomatoTimeViewModel.refreshRecords(userId);
+                bool isSuccess = await App.TomatoTimeManager.InitUserRecords(App.StaticUser.UserId);
+                TomatoTaskViewModel.RefreshUserTasks();
                 if (lblRecordHint.IsVisible)
                 {
-                    if (TomatoTimeViewModel.recordCount() > 0)
+                    if (TomatoTaskViewModel.RecordCount > 0)
                     {
                         lblRecordHint.IsVisible = false;
                     }
                     else
                     {
-                        lblRecordHint.Text = "最近没有使用记录哦！快开始锁机学习吧！";
+                        lblRecordHint.Text = "最近没有任务哦！快添加任务吧！";
                     }
                 }
                 lblTomatoTimeLength.Text = App.StaticUser.TotalTimes.ToString();
                 lblTomatoPoints.Text = App.StaticUser.TomatoPoints.ToString();
             };
-            TomatoTimeViewModel.RecordCountChanged += () =>
+            TomatoTaskViewModel.RecordCountChanged += () =>
             {
                 if (lblRecordHint.IsVisible)
                 {
@@ -62,8 +64,29 @@ namespace TTP.View
 
         private async void SfButton_Clicked(object sender, EventArgs e)
         {
-            var newPage = new AddTimeRecordPage();
-            newPage.SetTimeEvent += OnTimeSet;
+            var newPage = new AddTaskPage();
+            newPage.AddTaskEvent += async (s) =>
+            {
+                DateTime currentTime = DateTime.Now;
+                // 上传一个起止时间相同的时间记录，表明有这个任务
+                TomatoTime time = new TomatoTime()
+                {
+                    BeginTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    EndTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    UserId = App.StaticUser.UserId,
+                    Description = s,
+                    BeginTimeDate = currentTime.Date.ToShortDateString(),
+                    SpanString = currentTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
+                };
+
+                if (App.IsLogIn)
+                {
+                    await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
+                    await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
+                }
+                App.TomatoTimeManager.AddTimeRecord(time);
+                TomatoTaskViewModel.RefreshUserTasks();
+            };
             await PopupNavigation.Instance.PushAsync(newPage);
         }
 
@@ -81,20 +104,13 @@ namespace TTP.View
             }
         }
 
-        public void AddExample() {
-            TomatoTime time = new TomatoTime()
-            {
-                BeginTime= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                EndTime= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                UserId=121
-            };
-            App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
-        }
-
-        public async void GetExampleAsync(long UserId)
+        private async void btnAddRecord_Clicked(object sender, EventArgs e)
         {
-            //UserId=16
-            List<TomatoTime> allTime = await App.TomatoTimeManager.GetAllTomatoTimeTasksAsync(121);
+            var btn = sender as Button;
+            var item = btn.Parent.BindingContext as TomatoTask;
+            var newPage = new AddTimeRecordPage { Description = item.TaskName };
+            newPage.SetTimeEvent += OnTimeSet;
+            await PopupNavigation.Instance.PushAsync(newPage);
         }
     }
 }

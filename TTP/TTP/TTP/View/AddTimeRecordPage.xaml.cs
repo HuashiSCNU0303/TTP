@@ -50,8 +50,7 @@ namespace TTP.View
             entryHours.SetBinding(Entry.TextProperty, new Binding("Hours") { Converter = new ExamineConverter(), Mode = BindingMode.OneWayToSource });
             entryMinutes.BindingContext = this;
             entryMinutes.SetBinding(Entry.TextProperty, new Binding("Minutes") { Converter = new ExamineConverter(), Mode = BindingMode.OneWayToSource });
-            entryDescription.BindingContext = this;
-            entryDescription.SetBinding(Entry.TextProperty, new Binding("Description"));
+            lblDescription.BindingContext = this;
         }
 
         private void btnReturn_Clicked(object sender, EventArgs e)

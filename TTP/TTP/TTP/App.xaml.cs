@@ -75,6 +75,7 @@ namespace TTP
         }
 
         public static List<string> AppWhiteList; // 白名单应用
+        public static Dictionary<string, List<TomatoTime>> UserTomatoTimes { get; set; }
         public App()
         {
             InitializeComponent();
@@ -85,6 +86,7 @@ namespace TTP
             AppManager = new AppManager(new AppRestService());
             staticUser = new User();
             StaticUser.TotalTimes = new TimeSpan();
+            UserTomatoTimes = new Dictionary<string, List<TomatoTime>>();
 
             client = new ClientWebSocket();
             cts = new CancellationTokenSource();
@@ -115,14 +117,7 @@ namespace TTP
         private void JudgeloginstatusAsync() 
         {
         }
-        private void InitWhiteList()
-        {
-            AppWhiteList = new List<string>();
-            // 在数据库里加一个字段吧，白名单应用列表……
-            AppWhiteList.Add("com.android.calculator2");
-            AppWhiteList.Add("com.android.settings");
-            AppWhiteList.Add("com.companyname.ttp"); // 一定要有
-        }
+        
 
         async void ConnectToServerAsync()
         {
