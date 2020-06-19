@@ -96,7 +96,7 @@ namespace TTP.View
             App.StaticUser.TomatoPoints += p;
             App.StaticUser.TotalTimes += Convert.ToDateTime(time.EndTime) - Convert.ToDateTime(time.BeginTime);
             App.TomatoTimeManager.AddTimeRecord(time);
-            TomatoTaskViewModel.RefreshUserTasks();
+            TomatoTaskViewModel.AddTimeRecord(time);
 
             await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
             await App.UserManager.ModifyUserTaskAsync(App.StaticUser);

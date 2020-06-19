@@ -31,14 +31,17 @@ namespace TTP.Data
                     var content = await response.Content.ReadAsStringAsync();
                     JObject jObject = JsonConvert.DeserializeObject<JObject>(content);
                     WhiteApps = jObject["userPackage"].ToString();
+                    Console.WriteLine("成功！！！");
                 }
                 else
                 {
+                    Console.WriteLine("错误1");
                     Debug.WriteLine(@"\tERROR {0}", response.Content);
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine("错误2");
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
             return WhiteApps;
@@ -49,21 +52,30 @@ namespace TTP.Data
             var uri = new Uri(string.Format(Constants.AppUrl, string.Empty));
             try
             {
-                Dictionary<long, string> whiteApps = new Dictionary<long, string>
+                
+                var whiteApps = new Dictionary<string, string>
                 {
-                    { id, whiteList }
+                    { "userId", id.ToString() },
+                    { "userPackage", whiteList }
                 };
                 string json = JsonConvert.SerializeObject(whiteApps);
+                Console.WriteLine("解析的json：" + json);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = null;
                 response = await _client.PutAsync(uri, content);
                 if (response.IsSuccessStatusCode)
                 {
+                    Console.WriteLine("成功2");
                     Debug.WriteLine(@"\tTodoItem successfully saved.");
+                }
+                else
+                {
+                    Console.WriteLine("失败333");
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine("失败！！");
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
         }

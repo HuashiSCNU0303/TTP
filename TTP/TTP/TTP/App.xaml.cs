@@ -63,14 +63,14 @@ namespace TTP
 
         // 登录后在番茄钟页面加载用户近期的使用记录
         public static event Action<long> LogInStatusChanged;
-        private static bool isLogIn = false;
-        public static bool IsLogIn
+        private static long currentUserID = -1;
+        public static long CurrentUserID
         {
-            get { return isLogIn; }
+            get { return currentUserID; }
             set
             {
-                isLogIn = value;
-                LogInStatusChanged(StaticUser.UserId);
+                currentUserID = value;
+                LogInStatusChanged(value);
             }
         }
 

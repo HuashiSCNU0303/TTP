@@ -36,7 +36,7 @@ namespace TTP.View
                 DependencyService.Get<IToastService>().LongAlert("登陆成功！");
                 App.StaticUser = user2;
                 user2.TotalTimes = new TimeSpan();
-                App.IsLogIn = true;
+                App.CurrentUserID = App.StaticUser.UserId;
                 await Navigation.PopAsync();
             }
             else 
@@ -55,8 +55,10 @@ namespace TTP.View
             }
             user.TomatoPoints = 0;
             user.Imgurl = null;
-            User user2= await App.UserManager.AddUserTaskAsync(user);
+            User user2 = await App.UserManager.AddUserTaskAsync(user);
             App.StaticUser = user2;
+            user2.TotalTimes = new TimeSpan();
+            App.CurrentUserID = App.StaticUser.UserId;
             DependencyService.Get<IToastService>().LongAlert("注册成功！");
             await Navigation.PopAsync();
         }

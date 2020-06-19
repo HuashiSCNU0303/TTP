@@ -13,55 +13,16 @@ xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart
         <ScrollView>
             <StackLayout>
                 <border:SfBorder BorderColor="AliceBlue" BorderWidth="2" Margin="10" HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="300">
-                <chart:SfChart   >
-                <chart:SfChart.BindingContext>
-                    <TTP:DataAnalysisViewModel/>
-                </chart:SfChart.BindingContext>
-                <chart:SfChart.Title>
-                    <chart:ChartTitle Text="年度时间统计" />
-                </chart:SfChart.Title>
-                <chart:SfChart.PrimaryAxis>
-                    <chart:DateTimeAxis EdgeLabelsDrawingMode="Shift" ZoomFactor="0.4" ZoomPosition="1">
-                        <chart:DateTimeAxis.Title>
-                            <chart:ChartAxisTitle Text="" />
-                        </chart:DateTimeAxis.Title>
-                    </chart:DateTimeAxis>
-                </chart:SfChart.PrimaryAxis>
-                <chart:SfChart.SecondaryAxis>
-                    <chart:NumericalAxis>
-                        <chart:NumericalAxis.Title>
-                            <chart:ChartAxisTitle Text="时间（分钟）" />
-                        </chart:NumericalAxis.Title>
-                    </chart:NumericalAxis>
-                </chart:SfChart.SecondaryAxis>
-                <chart:SfChart.ChartBehaviors>
-                    <chart:ChartZoomPanBehavior EnableSelectionZooming="False" ZoomMode="X" MaximumZoomLevel="200"/>
-                </chart:SfChart.ChartBehaviors>
-                    <chart:SfChart.Series>
-                        <chart:FastLineSeries ItemsSource="{Binding DataList}" XBindingPath="date" YBindingPath="minute" EnableTooltip="True">
-                            <chart:FastLineSeries.ColorModel>
-                                <chart:ChartColorModel Palette="Metro"/>
-                            </chart:FastLineSeries.ColorModel>
-                        </chart:FastLineSeries>
-                    </chart:SfChart.Series>
-                </chart:SfChart>
-            </border:SfBorder>
-
-
-                <border:SfBorder BorderColor="AliceBlue" BorderWidth="2" Margin="10" HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="300">
-                    <chart:SfChart   >
-                        <chart:SfChart.BindingContext>
-                            <TTP:DataAnalysisViewModel/>
-                        </chart:SfChart.BindingContext>
+                    <chart:SfChart>
                         <chart:SfChart.Title>
-                            <chart:ChartTitle Text="月度时间统计" />
+                            <chart:ChartTitle Text="每日使用时间统计" />
                         </chart:SfChart.Title>
                         <chart:SfChart.PrimaryAxis>
-                            <chart:DateTimeAxis EdgeLabelsDrawingMode="Shift" ZoomFactor="0.2" ZoomPosition="1">
-                                <chart:DateTimeAxis.Title>
-                                    <chart:ChartAxisTitle Text="" />
-                                </chart:DateTimeAxis.Title>
-                            </chart:DateTimeAxis>
+                            <chart:CategoryAxis EdgeLabelsDrawingMode="Shift" ZoomFactor="10" ZoomPosition="1">
+                                <chart:CategoryAxis.Title>
+                                    <chart:ChartAxisTitle Text="日期" />
+                                </chart:CategoryAxis.Title>
+                            </chart:CategoryAxis>
                         </chart:SfChart.PrimaryAxis>
                         <chart:SfChart.SecondaryAxis>
                             <chart:NumericalAxis>
@@ -74,11 +35,29 @@ xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart
                             <chart:ChartZoomPanBehavior EnableSelectionZooming="False" ZoomMode="X" MaximumZoomLevel="200"/>
                         </chart:SfChart.ChartBehaviors>
                         <chart:SfChart.Series>
-                            <chart:FastLineSeries ItemsSource="{Binding DataList}" XBindingPath="date.Day" YBindingPath="minute" EnableTooltip="True">
-                                <chart:FastLineSeries.ColorModel>
+                            <chart:LineSeries ItemsSource="{Binding DataList}" XBindingPath="Date" YBindingPath="Minute" EnableTooltip="True">
+                            </chart:LineSeries>
+                        </chart:SfChart.Series>
+                    </chart:SfChart>
+                </border:SfBorder>
+
+                <border:SfBorder BorderColor="AliceBlue" BorderWidth="2" Margin="10" HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="300">
+                    <chart:SfChart>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="任务使用时间比例" />
+                        </chart:SfChart.Title>
+                        <chart:SfChart.ChartBehaviors>
+                            <chart:ChartZoomPanBehavior EnableSelectionZooming="False" ZoomMode="X" MaximumZoomLevel="200"/>
+                        </chart:SfChart.ChartBehaviors>
+                        <chart:SfChart.Legend>
+                            <chart:ChartLegend OverflowMode="Wrap"/>
+                        </chart:SfChart.Legend>
+                        <chart:SfChart.Series>
+                            <chart:PieSeries ItemsSource="{Binding TaskList}" XBindingPath="TaskName" YBindingPath="Minute" EnableTooltip="True" LegendIcon="Circle" DataMarkerPosition="Outside">
+                                <chart:PieSeries.ColorModel>
                                     <chart:ChartColorModel Palette="Metro"/>
-                                </chart:FastLineSeries.ColorModel>
-                            </chart:FastLineSeries>
+                                </chart:PieSeries.ColorModel>
+                            </chart:PieSeries>
                         </chart:SfChart.Series>
                     </chart:SfChart>
                 </border:SfBorder>

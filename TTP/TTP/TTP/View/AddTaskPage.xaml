@@ -29,17 +29,13 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Margin="20" FontSize="Title" HorizontalOptions="Center" Text="添加任务"/>
         <Entry Grid.Row="1" x:Name="entryTask" HorizontalOptions="Center" Placeholder="想要完成什么任务..？" FontSize="20" />
-        <Grid Grid.Row="2" Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="2" Margin="20" Padding="40, 0, 40, 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnAddRecord" Grid.Row="0" Grid.Column="0" Text="添加" BackgroundColor="#3897f0" TextColor="White" CornerRadius="10" VerticalOptions="Start" Clicked = "btnAddRecord_Clicked"/>
-            <Button x:Name="btnReturn"  Grid.Row="0" Grid.Column="1" Text="返回" BackgroundColor="#3897f0" TextColor="White" CornerRadius="10" VerticalOptions="Start" Clicked = "btnReturn_Clicked" />
+            <Button x:Name="btnAddRecord" Grid.Column="0" Text="添加" BackgroundColor="#3897f0" TextColor="White" CornerRadius="5" VerticalOptions="Start" Clicked = "btnAddRecord_Clicked"/>
+            <Button x:Name="btnReturn" Grid.Column="1" Text="返回" BackgroundColor="#3897f0" TextColor="White" CornerRadius="5" VerticalOptions="Start" Clicked = "btnReturn_Clicked" />
         </Grid>
     </Grid>
 </pages:PopupPage>

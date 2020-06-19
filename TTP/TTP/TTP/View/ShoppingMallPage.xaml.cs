@@ -49,7 +49,6 @@ namespace TTP.View
         private  void ListView_Refreshing(object sender, EventArgs e)
         {
             GoodsViewModel.refresh();
-
             listview.EndRefresh();
         }
     }

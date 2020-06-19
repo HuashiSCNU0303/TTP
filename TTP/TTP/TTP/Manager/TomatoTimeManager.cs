@@ -65,10 +65,5 @@ namespace TTP.Data
             }
             UserTomatoTimes[key].Insert(0, tomatoTime);
         }
-
-        public void AddTask(string task)
-        {
-            UserTomatoTimes.Add(task, new List<TomatoTime>());
-        }
     }
 }

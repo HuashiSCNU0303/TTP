@@ -20,33 +20,27 @@ namespace TTP.View
         {
             InitializeComponent();
             lsvRecentRecords.BindingContext = new TomatoTaskViewModel();
-            /*lsvRecentRecords.DataSource.GroupDescriptors.Add(new Syncfusion.DataSource.GroupDescriptor()
-            {
-                PropertyName = "BeginTimeDate",
-            });*/
             App.LogInStatusChanged += async (userId) => 
             {
-                bool isSuccess = await App.TomatoTimeManager.InitUserRecords(App.StaticUser.UserId);
+                bool isSuccess = await App.TomatoTimeManager.InitUserRecords(userId);
+                App.AppManager.GetWhiteApps();
                 TomatoTaskViewModel.RefreshUserTasks();
-                if (lblRecordHint.IsVisible)
+                if (lblRecordHint.IsVisible && TomatoTaskViewModel.RecordCount > 0)
                 {
-                    if (TomatoTaskViewModel.RecordCount > 0)
-                    {
-                        lblRecordHint.IsVisible = false;
-                    }
-                    else
-                    {
-                        lblRecordHint.Text = "最近没有任务哦！快添加任务吧！";
-                    }
+                    lblRecordHint.IsVisible = false;
                 }
                 lblTomatoTimeLength.Text = App.StaticUser.TotalTimes.ToString();
                 lblTomatoPoints.Text = App.StaticUser.TomatoPoints.ToString();
             };
             TomatoTaskViewModel.RecordCountChanged += () =>
             {
-                if (lblRecordHint.IsVisible)
+                if (TomatoTaskViewModel.RecordCount > 0 && lblRecordHint.IsVisible) 
                 {
                     lblRecordHint.IsVisible = false;
+                }
+                else if (TomatoTaskViewModel.RecordCount == 0 && !lblRecordHint.IsVisible)
+                {
+                    lblRecordHint.IsVisible = true;
                 }
                 lblTomatoTimeLength.Text = App.StaticUser.TotalTimes.ToString();
                 lblTomatoPoints.Text = App.StaticUser.TomatoPoints.ToString();
@@ -79,13 +73,12 @@ namespace TTP.View
                     SpanString = currentTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
                 };
 
-                if (App.IsLogIn)
+                if (App.CurrentUserID != -1)
                 {
                     await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
                     await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
                 }
-                App.TomatoTimeManager.AddTimeRecord(time);
-                TomatoTaskViewModel.RefreshUserTasks();
+                TomatoTaskViewModel.AddTask(time);
             };
             await PopupNavigation.Instance.PushAsync(newPage);
         }
@@ -106,11 +99,18 @@ namespace TTP.View
 
         private async void btnAddRecord_Clicked(object sender, EventArgs e)
         {
-            var btn = sender as Button;
+            var btn = sender as ImageButton;
             var item = btn.Parent.BindingContext as TomatoTask;
             var newPage = new AddTimeRecordPage { Description = item.TaskName };
             newPage.SetTimeEvent += OnTimeSet;
             await PopupNavigation.Instance.PushAsync(newPage);
+        }
+
+        private void btnDeleteTask_Clicked(object sender, EventArgs e)
+        {
+            var btn = sender as ImageButton;
+            var item = btn.Parent.BindingContext as TomatoTask;
+            TomatoTaskViewModel.DeleteTask(item);
         }
     }
 }

@@ -37,8 +37,7 @@ namespace TTP.Data
                 }
             ));
             // 获取该用户的白名单应用包名字符串
-            Console.WriteLine("加载应用完成！");
-            string whiteAppString = await GetAppsAsync(App.StaticUser.UserId);
+            /*string whiteAppString = await GetAppsAsync(App.StaticUser.UserId);
             List<string> whiteAppStrings = new List<string>(whiteAppString.Split(';'));
             whiteAppStrings.ForEach(g =>
             {
@@ -46,6 +45,21 @@ namespace TTP.Data
                 if (app != null)
                 {
                     Console.WriteLine("应用的名字：" + app.AppName);
+                    app.IsInWhiteList = true;
+                    WhiteList.Add(g);
+                }
+            });*/
+        }
+
+        public async void GetWhiteApps()
+        {
+            string whiteAppString = await GetAppsAsync(App.StaticUser.UserId);
+            List<string> whiteAppStrings = new List<string>(whiteAppString.Split(';'));
+            whiteAppStrings.ForEach(g =>
+            {
+                var app = Apps.Find(x => x.PackageName.Equals(g));
+                if (app != null)
+                {
                     app.IsInWhiteList = true;
                     WhiteList.Add(g);
                 }

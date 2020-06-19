@@ -21,7 +21,7 @@
                 Hint="密码" 
                 ContainerType="Outlined"
                 OutlineCornerRadius="8">
-                <Entry Text="{Binding PassWord}" />
+                <Entry Text="{Binding PassWord}" IsPassword="True"/>
             </inputLayout:SfTextInputLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
