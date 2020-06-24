@@ -46,7 +46,12 @@ namespace TTP.Droid
             MyTaskId = TaskId;
 
             // 获取本机所有应用
-            Console.WriteLine("初始化本机应用！");
+            Console.WriteLine("异步初始化本机应用！");
+            /*Task.Run(() =>
+            {
+                App.AppManager.InitAllApps();
+                // Console.WriteLine("应用初始化已完成！");
+            });*/
             App.AppManager.InitAllApps();
             // 检查PACKAGE_USAGE_STATS权限
             AppOpsManager appOps = (AppOpsManager)GetSystemService(AppOpsService);
@@ -145,7 +150,7 @@ namespace TTP.Droid
                         Console.WriteLine("此时白名单：" + temp);
                     }
                 }
-                StartService(listenAppservice);
+                StartForegroundService(listenAppservice);
             }
             else
             {

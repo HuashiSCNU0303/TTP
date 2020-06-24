@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TTP.Model;
 using TTP.Services;
@@ -23,19 +24,24 @@ namespace TTP.Data
             WhiteList = new List<string>();
         }
 
-        public async void InitAllApps()
+        public void InitAllApps()
         {
             // 获得本机所有应用
             List<string> packageNames = DependencyService.Get<IOpenAppService>().GetApps();
-            packageNames.ForEach(g =>
-                Apps.Add(new AppModel
+            Task.Run(()=>
+            {
+                packageNames.ForEach(g =>
                 {
-                    PackageName = g,
-                    AppName = DependencyService.Get<IOpenAppService>().GetAppName(g),
-                    AppIcon = DependencyService.Get<IOpenAppService>().GetAppIcon(g),
-                    IsInWhiteList = false
-                }
-            ));
+                    Apps.Add(new AppModel
+                    {
+                        PackageName = g,
+                        AppName = DependencyService.Get<IOpenAppService>().GetAppName(g),
+                        AppIcon = DependencyService.Get<IOpenAppService>().GetAppIcon(g),
+                        IsInWhiteList = false
+                    });
+                    Console.WriteLine("添加了一个应用！！！！");
+                });
+            });
             // 获取该用户的白名单应用包名字符串
             /*string whiteAppString = await GetAppsAsync(App.StaticUser.UserId);
             List<string> whiteAppStrings = new List<string>(whiteAppString.Split(';'));

@@ -10,6 +10,7 @@ using Android.App.Usage;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
@@ -22,6 +23,9 @@ namespace TTP.Droid
     {
         Timer timer;
         Dictionary<string, bool> whiteList;
+        public const int SERVICE_RUNNING_NOTIFICATION_ID = 10000;
+        public const string ChannelID = "MyChannel";
+        public const string ChannelName = "ListenAppService";
         public override IBinder OnBind(Intent intent)
         {
             return null;
@@ -41,12 +45,24 @@ namespace TTP.Droid
             whiteList.Clear();
             foreach (string item in list)
             {
-                Console.WriteLine("上传上来的包名：" + item);
                 if (!whiteList.ContainsKey(item))
                 {
                     whiteList.Add(item, true);
                 }
             }
+
+            // 设置前台服务
+            NotificationChannel chan = new NotificationChannel(ChannelID, ChannelName, NotificationImportance.None);
+            chan.LockscreenVisibility = NotificationVisibility.Private;
+            NotificationManager nm = (NotificationManager)GetSystemService(NotificationService);
+            nm.CreateNotificationChannel(chan);
+            var notificationBuilder = new NotificationCompat.Builder(this, ChannelID);
+            var notification = notificationBuilder.SetOngoing(true)
+                                                  .SetSmallIcon(Resource.Drawable.timer1)
+                                                  .SetContentTitle("TTP")
+                                                  .SetContentText("正在锁机中，不允许切换到白名单以外的应用...")
+                                                  .Build();
+            StartForeground(SERVICE_RUNNING_NOTIFICATION_ID, notification);
             return base.OnStartCommand(intent, flags, startId);
         }
 

@@ -20,6 +20,7 @@ namespace TTP.View
         public WhiteListSettingPage()
         {
             InitializeComponent();
+            Console.WriteLine("当前Apps内数量：" + App.AppManager.Apps.Count);
             appListView.ItemsSource = App.AppManager.Apps;
         }
 
