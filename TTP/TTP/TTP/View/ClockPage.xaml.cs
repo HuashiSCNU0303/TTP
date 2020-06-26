@@ -26,6 +26,7 @@ namespace TTP.View
         public ClockPage()
         {
             InitializeComponent();
+            BindingContext = new AddTimeRecordViewModel();
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 dynamicLength = dynamicLength.Subtract(TimeSpan.FromSeconds(1));
@@ -81,26 +82,8 @@ namespace TTP.View
 
         private async void Finish()
         {
-            DateTime currentTime = DateTime.Now;
-            TomatoTime time = new TomatoTime()
-            {
-                BeginTime = startTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                EndTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                UserId = App.StaticUser.UserId,
-                Description = description,
-                BeginTimeDate = startTime.Date.ToShortDateString(),
-                SpanString = startTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
-            };
-            int p = (DateTime.Now.Subtract(startTime).Minutes + 1) / 15 + 1;
-
-            App.StaticUser.TomatoPoints += p;
-            App.StaticUser.TotalTimes += Convert.ToDateTime(time.EndTime) - Convert.ToDateTime(time.BeginTime);
-            App.TomatoTimeManager.AddTimeRecord(time);
-            TomatoTaskViewModel.AddTimeRecord(time);
-
-            await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
-            await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
-            // TODO: 加一个铃声提醒
+            var advm = BindingContext as AddTimeRecordViewModel;
+            advm.SetRecord(startTime, description);
             await PopupNavigation.Instance.PopAsync();
         }
     }

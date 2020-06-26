@@ -56,29 +56,12 @@ namespace TTP.View
             });
         }
 
-        private async void SfButton_Clicked(object sender, EventArgs e)
+        private async void btnAddTask_Clicked(object sender, EventArgs e)
         {
             var newPage = new AddTaskPage();
-            newPage.AddTaskEvent += async (s) =>
+            newPage.AddTaskEvent += (s) =>
             {
-                DateTime currentTime = DateTime.Now;
-                // 上传一个起止时间相同的时间记录，表明有这个任务
-                TomatoTime time = new TomatoTime()
-                {
-                    BeginTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                    EndTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
-                    UserId = App.StaticUser.UserId,
-                    Description = s,
-                    BeginTimeDate = currentTime.Date.ToShortDateString(),
-                    SpanString = currentTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
-                };
-
-                if (App.CurrentUserID != -1)
-                {
-                    await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
-                    await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
-                }
-                TomatoTaskViewModel.AddTask(time);
+                TomatoTaskViewModel.AddTask(s);
             };
             await PopupNavigation.Instance.PushAsync(newPage);
         }

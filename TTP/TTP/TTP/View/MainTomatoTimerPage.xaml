@@ -84,36 +84,8 @@ xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Butto
                         </border:SfBorder>
                     </DataTemplate>
                 </syncfusion:SfListView.ItemTemplate>
-                <!--<syncfusion:SfListView.GroupHeaderTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout>
-                                    <Label Text="{Binding Key}"
-                                           FontSize="18"
-                                           TextColor="#2A52BE"
-                                           FontAttributes="Bold"
-                                           VerticalOptions="Center"
-                                           HorizontalOptions="Start"/>
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </syncfusion:SfListView.GroupHeaderTemplate>
-                <syncfusion:SfListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0.4*" />
-                                <RowDefinition Height="0.6*" />
-                            </Grid.RowDefinitions>
-                            <Label Text="{Binding SpanString}" FontAttributes="Bold" TextColor="Teal" FontSize="21" />
-                            <Label Grid.Row="1" Text="{Binding Description}" TextColor="Teal" FontSize="15"/>
-                        </Grid>
-                    </DataTemplate>
-                </syncfusion:SfListView.ItemTemplate>-->
             </syncfusion:SfListView>
-            <Button Grid.Row="1" HeightRequest="60" WidthRequest="60" BackgroundColor="#2A52BE" FontSize="15" Text="添加任务" TextColor="White" HorizontalOptions="End" VerticalOptions="End" Margin="10" Clicked="SfButton_Clicked" BorderRadius="30" />
+            <Button x:Name="btnAddTask" Grid.Row="1" HeightRequest="60" WidthRequest="60" BackgroundColor="#2A52BE" FontSize="15" Text="添加任务" TextColor="White" HorizontalOptions="End" VerticalOptions="End" Margin="10" Clicked="btnAddTask_Clicked" BorderRadius="30" />
             <Label x:Name="lblRecordHint" Grid.Row="1" FontSize="20" Text="现在没有任务哦...快去添加任务吧！" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
         

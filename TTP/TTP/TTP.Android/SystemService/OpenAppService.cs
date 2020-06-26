@@ -19,10 +19,7 @@ namespace TTP.Droid
 {
     class OpenAppService : Activity, IOpenAppService
     {
-        public OpenAppService()
-        {
-
-        }
+        public OpenAppService() { }
         public Task<bool> Launch(string packageName)
         {
             Intent intent = Android.App.Application.Context.PackageManager.GetLaunchIntentForPackage(packageName);

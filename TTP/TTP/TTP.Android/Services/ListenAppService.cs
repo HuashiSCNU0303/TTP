@@ -96,7 +96,6 @@ namespace TTP.Droid
             {
                 e.PrintStackTrace();
             }
-
             foreach (UsageStats usageStats in queryUsageStats)
             {
                 if (mLastEventField != null)
@@ -110,7 +109,6 @@ namespace TTP.Droid
                     {
                         e.PrintStackTrace();
                     }
-
                     if (lastEvent == 1)
                     {
                         topPackageName = usageStats.PackageName;

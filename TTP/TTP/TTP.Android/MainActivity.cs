@@ -38,20 +38,16 @@ namespace TTP.Droid
             Instance = this;
 
             App.ClockPageChanged += SetService;
+            // 注册DependencyService接口实现
             Xamarin.Forms.DependencyService.Register<OpenAppService>();
             Xamarin.Forms.DependencyService.Register<ToastService>();
+            // 注册广播
             restartMsgReceiver = new RestartMsgReceiver();
             RegisterReceiver(restartMsgReceiver, new IntentFilter("com.companyname.ttp.ListenAppService"));
 
             MyTaskId = TaskId;
 
             // 获取本机所有应用
-            Console.WriteLine("异步初始化本机应用！");
-            /*Task.Run(() =>
-            {
-                App.AppManager.InitAllApps();
-                // Console.WriteLine("应用初始化已完成！");
-            });*/
             App.AppManager.InitAllApps();
             // 检查PACKAGE_USAGE_STATS权限
             AppOpsManager appOps = (AppOpsManager)GetSystemService(AppOpsService);

@@ -54,10 +54,27 @@ namespace TTP.ViewModel
             RecordCountChanged();
         }
 
-        public static void AddTask(TomatoTime tomatoTime)
+        public static async void AddTask(string description)
         {
+            if (App.CurrentUserID != -1)
+            {
+                DateTime currentTime = DateTime.Now;
+                // 上传一个起止时间相同的时间记录，表明有这个任务
+                TomatoTime time = new TomatoTime()
+                {
+                    BeginTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    EndTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    UserId = App.StaticUser.UserId,
+                    Description = description,
+                    BeginTimeDate = currentTime.Date.ToShortDateString(),
+                    SpanString = currentTime.ToShortTimeString() + " → " + currentTime.ToShortTimeString()
+                };
+                await App.TomatoTimeManager.AddTomatoTimeTaskAsync(time);
+                await App.UserManager.ModifyUserTaskAsync(App.StaticUser);
+            }
+
             TomatoTask tomatoTask = new TomatoTask();
-            tomatoTask.TaskName = tomatoTime.Description;
+            tomatoTask.TaskName = description;
             tomatoTask.TimeRecords = new List<TomatoTime>();
             tomatoTask.TotalTimes = new TimeSpan();
             tasks.Insert(0, tomatoTask);
